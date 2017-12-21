@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setLocation } from '../../Actions';
 
 class LocationForm extends Component {
   constructor(){
@@ -19,11 +21,15 @@ class LocationForm extends Component {
         <h3>Where are you looking to eat?</h3>
         <form>
           <input type='text' onChange={this.handleLocationChange} value={this.state.location}/>
-          <input type='submit'/>
+          <button onClick={(event)=>{event.preventDefault(),this.props.handleLocation(this.state.location)}}>Enter</button>
         </form>
       </div>
     )
   }
 }
 
-export default  LocationForm;
+const mapDispatchToProps = dispatch => ({
+  handleLocation: location => dispatch(setLocation(location))
+});
+
+export default connect(null, mapDispatchToProps)(LocationForm);

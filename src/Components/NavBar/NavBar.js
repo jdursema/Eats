@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-
-const NavBar = () => {
+const NavBar = props => {
   return(
     <header>
       <h1>Eats!</h1>
         <p>Hello, Guest!</p>
-        <p>Your Location: <span>Denver, CO</span></p>
+        <p>Your Location: <span>{props.location}</span></p>
         <NavLink to='/login' className='nav'>Login/SignUp</NavLink>
       <div className='nav-bar'>
         <NavLink to='/' className='nav'>Home</NavLink>
@@ -20,4 +20,8 @@ const NavBar = () => {
   )
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  location: state.location
+})
+
+export default connect(mapStateToProps, null)(NavBar);

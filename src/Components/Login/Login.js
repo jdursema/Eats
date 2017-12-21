@@ -13,14 +13,7 @@ class Login extends Component {
     this.setState({[event.target.name] : event.target.value})
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const userRef = firebase.database().ref('user');
-    const user = {
-      favorites: [],
-      userName: this.state.userName,
-    }
-  }
+
 
 
   render() {
