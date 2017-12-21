@@ -6,6 +6,7 @@ import RecomendationsContainer from '../RecomendationsContainer/RecomendationsCo
 import LocationForm from '../LocationForm/LocationForm';
 import { Route } from 'react-router-dom';
 import Home from '../Home/Home';
+import Login from '../Login/Login';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path='/favorites' component={FavoritesContainer}/>
           <Route path='/recomendations' component={RecomendationsContainer}/>
           <Route path='/location' component={LocationForm}/>
+          <Route path='/login' component={Login}/>
         </div>
       </div>
     );

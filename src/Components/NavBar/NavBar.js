@@ -6,6 +6,9 @@ const NavBar = () => {
   return(
     <header>
       <h1>Eats!</h1>
+        <p>Hello, Guest!</p>
+        <p>Your Location: <span>Denver, CO</span></p>
+        <NavLink to='/login' className='nav'>Login/SignUp</NavLink>
       <div className='nav-bar'>
         <NavLink to='/' className='nav'>Home</NavLink>
         <NavLink to='/favorites' className='nav'>Favorites</NavLink>
