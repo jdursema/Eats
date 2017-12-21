@@ -2,7 +2,11 @@ import React from 'react';
 
 const Home = () => {
   return(
-    <h1>Home</h1>
+    <div>
+      <p>Search for a resturant by name or cusine near you!</p>
+      <input type='text'/>
+    </div>
+    
   )
 }
 
