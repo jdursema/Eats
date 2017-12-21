@@ -20,8 +20,13 @@ class LocationForm extends Component {
       <div>
         <h3>Where are you looking to eat?</h3>
         <form>
-          <input type='text' onChange={this.handleLocationChange} value={this.state.location}/>
-          <button onClick={(event)=>{event.preventDefault(),this.props.handleLocation(this.state.location)}}>Enter</button>
+          <input 
+            type='text' 
+            onChange={this.handleLocationChange} 
+            value={this.state.location}/>
+          <input 
+            type='submit' 
+            onClick={(event)=>{event.preventDefault(),this.props.handleLocation(this.state.location)}}/>
         </form>
       </div>
     )

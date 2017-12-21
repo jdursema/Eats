@@ -4,6 +4,7 @@ class Login extends Component {
   constructor(){
     super()
     this.state ={
+      email: '',
       username: '',
       password: ''
     }
@@ -17,6 +18,14 @@ class Login extends Component {
   render() {
     return (
       <form>
+        <label htmlFor='email-input'>
+          Email: 
+        </label>
+        <input 
+          type='text' 
+          className='email-input' 
+          onChange={this.handleStateChange}
+          name='email'/>
         <label htmlFor='username-input'>
           Username: 
         </label>

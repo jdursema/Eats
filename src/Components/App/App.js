@@ -7,9 +7,9 @@ import LocationForm from '../LocationForm/LocationForm';
 import { Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
         <NavBar />
@@ -19,10 +19,10 @@ class App extends Component {
           <Route path='/recomendations' component={RecomendationsContainer}/>
           <Route path='/location' component={LocationForm}/>
           <Route path='/login' component={Login}/>
+          <Route path='/signup' component={SignUp}/>
         </div>
       </div>
     );
   }
-}
 
 export default App;

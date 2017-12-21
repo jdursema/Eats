@@ -8,7 +8,8 @@ const NavBar = props => {
       <h1>Eats!</h1>
         <p>Hello, Guest!</p>
         <p>Your Location: <span>{props.location}</span></p>
-        <NavLink to='/login' className='nav'>Login/SignUp</NavLink>
+        <NavLink to='/signup' className='nav'>SignUp</NavLink>
+        <NavLink to='/login' className='nav'>Login</NavLink>
       <div className='nav-bar'>
         <NavLink to='/' className='nav'>Home</NavLink>
         <NavLink to='/favorites' className='nav'>Favorites</NavLink>
