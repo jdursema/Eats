@@ -1,0 +1,22 @@
+header {
+  background-color: #140802;
+  opacity: .9; }
+  header h1 {
+    color: white;
+    font-family: Courier New, Courier, monospace;
+    font-weight: lighter;
+    font-size: 80px;
+    margin: 0; }
+  header p {
+    color: white; }
+  header .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+  header .nav-bar {
+    display: flex;
+    justify-content: space-around; }
+    header .nav-bar .nav {
+      color: white;
+      text-decoration: none;
+      padding: 1%; }
