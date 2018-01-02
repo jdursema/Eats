@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addUser } from '../../Actions'
 
-class Login extends Component {
+class SignUp extends Component {
   constructor(){
     super()
     this.state ={
@@ -26,14 +28,15 @@ class Login extends Component {
           className='email-input' 
           onChange={this.handleStateChange}
           name='email'/>
-        <label htmlFor='username-input'>
+        <label htmlFor='password-input'>
           Username: 
         </label>
         <input 
           type='text' 
           className='username-input' 
           onChange={this.handleStateChange}
-          name='username'/>
+          name='username' 
+          value={this.state.username}/>
         <label htmlFor='password-input'>
           Password: 
         </label>
@@ -43,11 +46,17 @@ class Login extends Component {
           onChange={this.handleStateChange}
           name='password' 
           value={this.state.password}/>
-        <button>Create Users</button>
+        <button
+          onClick={(event)=>{event.preventDefault()
+            this.props.handleSignUp(this.state.email, this.state.username,this.state.password)}}>Create Users</button>
       </form>
 
     )
   }
 }
 
-export default  Login;
+const mapDispatchToProps = dispatch => ({
+  handleSignUp: (email, username, password) => dispatch(addUser(email, username, password))
+})
+
+export default  connect(null, mapDispatchToProps)(SignUp);

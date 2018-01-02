@@ -1,4 +1,4 @@
-import firebase, { auth } from '../firebase';
+import firebase, { auth, db } from '../firebase';
 
 export const setLocation = (location) => ({
   type: 'SET_LOCATION',
@@ -20,5 +20,14 @@ export const signIn = (user) => ({
   user
 })
 
+export const addUser = (email, username, password) => async (dispatch) => {
+  auth.createUserWithEmailAndPassword(email, password)
+  .then((user)=>{
+    dispatch(signIn(user))
+  })
+  .catch((error) => {
+    console.log
+  })
+}
 
 
