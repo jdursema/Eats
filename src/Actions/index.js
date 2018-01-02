@@ -36,13 +36,17 @@ export const addUser = (email, username, password) => async (dispatch) => {
 export const fetchRestaurants = () => async (dispatch) => {
   try{
     const fetchedData= await fetchRestaurantData()
-    console.log(fetchedData)
+    dispatch(createCards(fetchedData))
 
-    
   } catch (error){
     console.log(error)
   }
 }
+
+export const createCards = (restaurantArray) => ({ 
+  type: 'CREATE_CARDS',
+  restaurantArray
+})
 
 
 

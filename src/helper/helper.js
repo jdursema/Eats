@@ -10,10 +10,11 @@ export const fetchRestaurantData = async() => {
     },
   })
   const fetchResponse = await fetchData.json()
+  console.log(fetchResponse)
 
   const restaurantArray = await fetchResponse.establishments
 
-  // console.log(restaurantArray)
+  console.log(restaurantArray)
   const fetchIndividualData = await fetchIndividualRestaurantData(restaurantArray)
   // console.log(fetchIndividualData)
   return fetchIndividualData
@@ -43,9 +44,7 @@ const fetchIndividualRestaurantData = (restaurantArray) => {
           address: fetchResponse.location.address
         }
       }
-    }
-    
-    
+    }   
   })
   return Promise.all(restaurantId)
 }
