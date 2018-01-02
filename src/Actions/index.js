@@ -1,4 +1,6 @@
-import firebase, { auth, db } from '../firebase';
+import { auth } from '../firebase';
+// import { apiKey } from '../helper/.apikey.js';
+import { fetchRestaurantData } from '../helper/helper';
 
 export const setLocation = (location) => ({
   type: 'SET_LOCATION',
@@ -29,5 +31,19 @@ export const addUser = (email, username, password) => async (dispatch) => {
     console.log
   })
 }
+
+
+export const fetchRestaurants = () => async (dispatch) => {
+  try{
+    const fetchedData= await fetchRestaurantData()
+    console.log(fetchedData)
+
+    
+  } catch (error){
+    console.log(error)
+  }
+}
+
+
 
 

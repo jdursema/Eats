@@ -1,14 +1,39 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Home.css';
+import { connect } from 'react-redux';
+import { fetchRestaurants } from '../../Actions';
 
-const Home = () => {
-  return(
-    <div className='home'>
-      <p>Search for a resturant by name or cusine near you!</p>
-      <input type='text'/>
-    </div>
-    
-  )
+
+class Home extends Component {  
+  constructor(){
+    super();
+    this.state = {
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      this.props.handleFetchRestaurants();
+    } catch (error){
+      console.log(error);
+    }
+  }
+
+  render () {
+    return(
+      <div className='home'>
+        <p>Search for a restaurants by name or cusine near you!</p>
+        <input type='text'/>
+        <p>Restaurants</p>
+      </div>
+      
+    )
+  }
+  
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  handleFetchRestaurants: () => dispatch(fetchRestaurants())
+});
+
+export default connect(null, mapDispatchToProps)(Home);
