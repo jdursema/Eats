@@ -7,9 +7,11 @@ import Card from '../Card/Card';
 const CardContainer = props => {
 
   const mappedCards = props.cards.map((card)=>{
-    return <Card 
+    if (card){
+      return <Card 
       info= {card}
     />
+    }
   })
 
   return (
