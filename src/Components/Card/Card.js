@@ -1,10 +1,11 @@
 import React from 'react';
+import './Card.css';
 
 const Card = ({ info }) => {
   let keys
   let mappedData
 
-  if(info.data){
+  if (info.data){
     keys = Object.keys(info.data);
     console.log(keys)
     mappedData = keys.map((key, index)=> {
@@ -14,7 +15,7 @@ const Card = ({ info }) => {
   
 
   return (
-    <div>
+    <div className = 'card'>
       <p>{info.name}</p>
       {mappedData}
     </div>

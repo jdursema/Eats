@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card/Card';
+import Card from '../Card/Card'
+import './CardContainer.css';
 
 const CardContainer = props => {
   const mappedCards = props.cards.map((card)=>{
@@ -12,7 +13,7 @@ const CardContainer = props => {
   });
 
   return (
-    <div>
+    <div className='card-container'>
       {mappedCards}
     </div>
     

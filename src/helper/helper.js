@@ -1,7 +1,7 @@
 import { apiKey } from './.apikey.js';
 
 export const fetchRestaurantData = async() => {
-  if(localStorage.cards.data){
+  if(localStorage.cards){
     const storedData = localStorage.getItem('cards')
     const parsedStoredData=JSON.parse(storedData)
     return parsedStoredData
