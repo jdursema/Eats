@@ -1,4 +1,4 @@
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { fetchRestaurantData } from '../helper/helper';
 
 export const setLocation = (location) => ({
@@ -43,3 +43,22 @@ export const createCards = (restaurantArray) => ({
   type: 'CREATE_CARDS',
   restaurantArray
 });
+
+export const AddFavoriteToState = (cardData) => ({
+  type: 'ADD_FAVORITE',
+  cardData
+});
+
+export const postAddFavorite = (cardData, user) => (dispatch) => {
+  // user.uid
+  // const addFavoritePost = await fetch ('https://eats-8733e.firebaseio.com/', { 
+  //   method: 'PUSH',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(cardData)
+  // });
+
+    AddFavoriteToState(cardData)
+  
+}

@@ -7,4 +7,4 @@ const locationReducer = (state='', action) => {
   }
 };
 
-export default locationReducer
+export default locationReducer;

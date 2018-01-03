@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ info }) => {
+const Card = ({ info, handleAddFav, user, history }) => {
   let keys
   let mappedData
 
@@ -12,12 +12,23 @@ const Card = ({ info }) => {
       return <p key={index}>{key}: {info.data[key]}</p>;
     });
   }
+
+  const handleFavClick = (info, user) => {
+    if (user){
+      handleAddFav(info, user)
+    } else {
+      history.push('/login')
+    }
+  }
   
 
   return (
     <div className = 'card'>
-      <p>{info.name}</p>
+      <p className='restaurant-name'>{info.name}</p>
       {mappedData}
+      <button onClick={()=> { handleFavClick(info, user) }}>
+        Fav
+      </button>
     </div>
   ); 
 };
