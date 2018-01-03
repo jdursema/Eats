@@ -9,10 +9,10 @@ describe('locationReducer', () => {
   });
 
   it('should reutnr a new state with the new location', () => {
-   const location = 'Portland, ME';
-   const expected = location;
-   const action = actions.setLocation(location);
+    const location = 'Portland, ME';
+    const expected = location;
+    const action = actions.setLocation(location);
 
-   expect(locationReducer(undefined, action)).toEqual(expected)
-  })
+    expect(locationReducer(undefined, action)).toEqual(expected);
+  });
 });
