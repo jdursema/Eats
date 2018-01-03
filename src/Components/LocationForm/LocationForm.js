@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { setLocation } from '../../Actions';
 
 class LocationForm extends Component {
-  constructor(){
+  constructor() {
     super()
-    this.state ={
-      location: '',
-    }
+    this.state = {
+      location: ''
+    };
   }
 
   handleLocationChange = event => {
@@ -26,10 +26,10 @@ class LocationForm extends Component {
             value={this.state.location}/>
           <input 
             type='submit' 
-            onClick={(event)=>{event.preventDefault(),this.props.handleLocation(this.state.location)}}/>
+            onClick={(event)=>{event.preventDefault(), this.props.handleLocation(this.state.location)}}/>
         </form>
       </div>
-    )
+    );
   }
 }
 

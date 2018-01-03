@@ -1,9 +1,9 @@
 import React from 'react';
 
 const RecomendationsContainer = () => {
-  return(
+  return (
     <h1>RECOMENDATIONS</h1>
-  )
-}
+  );
+};
 
 export default RecomendationsContainer;

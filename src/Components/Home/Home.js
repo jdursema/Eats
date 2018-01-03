@@ -17,7 +17,7 @@ class Home extends Component {
   }
 
   render () {
-    return(
+    return (
       <div className='home'>
         <p>Search for a restaurants by name or cusine near you!</p>
         <input type='text'/>
@@ -25,7 +25,7 @@ class Home extends Component {
         <CardConatainer/>
       </div>
       
-    )
+    );
   }
   
 }

@@ -3,22 +3,22 @@ import { apiKey } from './.apikey.js';
 export const fetchRestaurantData = async() => {
   const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=31&lat=39.73&lon=104.99
   `, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key':  apiKey
-    },
-  })
-  const fetchResponse = await fetchData.json()
-  console.log(fetchResponse)
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'user-key':  apiKey
+      }
+    });
+  const fetchResponse = await fetchData.json();
+  console.log(fetchResponse);
 
-  const restaurantArray = await fetchResponse.establishments
+  const restaurantArray = await fetchResponse.establishments;
 
   console.log(restaurantArray)
   const fetchIndividualData = await fetchIndividualRestaurantData(restaurantArray)
   // console.log(fetchIndividualData)
-  return fetchIndividualData
-}
+  return fetchIndividualData;
+};
 
 
 const fetchIndividualRestaurantData = (restaurantArray) => {
@@ -28,8 +28,8 @@ const fetchIndividualRestaurantData = (restaurantArray) => {
       headers: {
         'Content-Type': 'application/json',
         'user-key':  apiKey
-      },
-    })
+      }
+    });
     const fetchResponse = await fetchData.json()
     if (fetchResponse.name){
       return {
@@ -43,8 +43,8 @@ const fetchIndividualRestaurantData = (restaurantArray) => {
           rating: fetchResponse.user_rating.aggregate_rating,
           address: fetchResponse.location.address
         }
-      }
+      };
     }   
-  })
-  return Promise.all(restaurantId)
-}
+  });
+  return Promise.all(restaurantId);
+};
