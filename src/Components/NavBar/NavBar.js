@@ -19,6 +19,7 @@ const NavBar = props => {
       </div>
       <div className='nav-bar'>
         <NavLink to='/' className='nav'>Home</NavLink>
+        <NavLink to='/suggestions' className='nav'>Suggestions</NavLink>
         <NavLink to='/favorites' className='nav'>Favorites</NavLink>
         <NavLink to='/recomendations' className='nav'>Recomendations</NavLink>
         <NavLink to='/location' className='nav'>Change Location</NavLink>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card'
 import './CardContainer.css';
-import { addFavoriteToState} from '../../Actions';
+import { postAddFavorite } from '../../Actions';
 
 const CardContainer = props => {
   const mappedCards = props.cards.map((card)=>{
@@ -25,8 +25,8 @@ const CardContainer = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  handleAddFav: (cardData) => 
-    dispatch(addFavoriteToState(cardData))
+  handleAddFav: (cardData, user) => 
+    dispatch(postAddFavorite(cardData, user))
 });
 
 const mapStateToProps = state => ({

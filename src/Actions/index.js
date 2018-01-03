@@ -49,16 +49,11 @@ export const addFavoriteToState = (cardData) => ({
   cardData
 });
 
-export const postAddFavorite = (cardData, user) => (dispatch) => {
-  // user.uid
-  // const addFavoritePost = await fetch ('https://eats-8733e.firebaseio.com/', { 
-  //   method: 'PUSH',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(cardData)
-  // });
-
-    addFavoriteToState(cardData)
-  
-}
+export const postAddFavorite = (cardData, user) => async (dispatch) => {
+  const data = await db.ref('users/' + user.uid).push({
+    favorites: cardData
+  });
+  const id= await {cardId: data.path.pieces_[2]}
+  const newCardData = {...cardData, ...id}
+  dispatch(addFavoriteToState(newCardData)) 
+};
