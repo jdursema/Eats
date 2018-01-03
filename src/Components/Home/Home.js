@@ -8,6 +8,7 @@ import CardConatainer from '../CardContainer/CardContainer';
 class Home extends Component {  
 
   async componentDidMount() {
+    //if localstorage.cards then render storage and set it in store else fetch
     try {
       this.props.handleFetchRestaurants();
     } catch (error){
