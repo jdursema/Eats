@@ -44,7 +44,7 @@ export const createCards = (restaurantArray) => ({
   restaurantArray
 });
 
-export const AddFavoriteToState = (cardData) => ({
+export const addFavoriteToState = (cardData) => ({
   type: 'ADD_FAVORITE',
   cardData
 });
@@ -59,6 +59,6 @@ export const postAddFavorite = (cardData, user) => (dispatch) => {
   //   body: JSON.stringify(cardData)
   // });
 
-    AddFavoriteToState(cardData)
+    addFavoriteToState(cardData)
   
 }

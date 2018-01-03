@@ -22,7 +22,7 @@ class Home extends Component {
         <p>Search for a restaurants by name or cusine near you!</p>
         <input type='text'/>
         <p>Restaurants</p>
-        <CardConatainer/>
+        <CardConatainer history= {this.props.history}/>
       </div>
       
     );

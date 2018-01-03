@@ -14,7 +14,7 @@ const Card = ({ info, handleAddFav, user, history }) => {
   }
 
   const handleFavClick = (info, user) => {
-    if (user){
+    if (user.uid){
       handleAddFav(info, user)
     } else {
       history.push('/login')
@@ -26,7 +26,7 @@ const Card = ({ info, handleAddFav, user, history }) => {
     <div className = 'card'>
       <p className='restaurant-name'>{info.name}</p>
       {mappedData}
-      <button onClick={()=> { handleFavClick(info, user) }}>
+      <button onClick={()=> { handleFavClick(info, user)}}>
         Fav
       </button>
     </div>
