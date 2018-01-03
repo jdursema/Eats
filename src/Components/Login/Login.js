@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 
 class Login extends Component {
   constructor(){
-    super()
+    super();
     this.state ={
       email: '',
       password: ''
-    }
+    };
   }
 
   handleStateChange = event => {
-    this.setState({[event.target.name] : event.target.value})
+    this.setState({[event.target.name] : event.target.value});
   }
 
 
@@ -36,17 +36,20 @@ class Login extends Component {
           onChange={this.handleStateChange}
           name='password' 
           value={this.state.password}/>
-        <button onClick={(event)=>{event.preventDefault()
-          this.props.handleLogin(this.state.email, this.state.password)}}>Login</button>
+        <button onClick={ (event)=>{
+          event.preventDefault()
+          this.props.handleLogin(this.state.email, this.state.password)}}>
+            Login
+        </button>
       </form>
 
-    )
+    );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   handleLogin: (email, password) => dispatch(checkUser(email, password))
-})
+});
     
 
 export default connect(null, mapDispatchToProps)(Login);

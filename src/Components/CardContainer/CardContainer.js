@@ -2,25 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 
-
-
 const CardContainer = props => {
-
   const mappedCards = props.cards.map((card)=>{
-    if (card){
+    if (card) {
       return <Card 
-      info= {card}
-    />
+        info= {card}
+      />;
     }
-  })
+  });
 
   return (
     <div>
       {mappedCards}
     </div>
     
-  )
-}
+  );
+};
 
 const mapStateToProps = state => ({
   cards: state.cards

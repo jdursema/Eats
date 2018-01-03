@@ -10,19 +10,19 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 
 const App = () => {
-    return (
-      <div className="App">
-        <NavBar />
-        <div>
-          <Route exact path='/' component={Home} />
-          <Route path='/favorites' component={FavoritesContainer}/>
-          <Route path='/recomendations' component={RecomendationsContainer}/>
-          <Route path='/location' component={LocationForm}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/signup' component={SignUp}/>
-        </div>
+  return (
+    <div className="App">
+      <NavBar />
+      <div>
+        <Route exact path='/' component={Home} />
+        <Route path='/favorites' component={FavoritesContainer}/>
+        <Route path='/recomendations' component={RecomendationsContainer}/>
+        <Route path='/location' component={LocationForm}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/signup' component={SignUp}/>
       </div>
-    );
-  }
+    </div>
+  );
+};
 
 export default App;

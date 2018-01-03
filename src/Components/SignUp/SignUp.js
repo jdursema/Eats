@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import { addUser } from '../../Actions'
 
 class SignUp extends Component {
-  constructor(){
-    super()
-    this.state ={
+  constructor() {
+    super();
+    this.state = {
       email: '',
       username: '',
       password: ''
-    }
+    };
   }
 
   handleStateChange = event => {
-    this.setState({[event.target.name] : event.target.value})
+    this.setState({[event.target.name] : event.target.value});
   }
 
 
@@ -57,6 +57,6 @@ class SignUp extends Component {
 
 const mapDispatchToProps = dispatch => ({
   handleSignUp: (email, username, password) => dispatch(addUser(email, username, password))
-})
+});
 
 export default  connect(null, mapDispatchToProps)(SignUp);
