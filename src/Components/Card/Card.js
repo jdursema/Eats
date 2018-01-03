@@ -1,10 +1,17 @@
 import React from 'react';
 
 const Card = ({ info }) => {
-  const keys = Object.keys(info.data)
-  const mappedData = keys.map((key)=> {
-    return <p key={index}>{ key}: {info.data[key]}</p>;
-  });
+  let keys
+  let mappedData
+
+  if(info.data){
+    keys = Object.keys(info.data);
+    console.log(keys)
+    mappedData = keys.map((key, index)=> {
+      return <p key={index}>{key}: {info.data[key]}</p>;
+    });
+  }
+  
 
   return (
     <div>
