@@ -30,7 +30,7 @@ const fetchIndividualRestaurantData = (restaurantArray) => {
         'user-key':  apiKey
       }
     });
-    const fetchResponse = await fetchData.json()
+    const fetchResponse = await fetchData.json();
     if (fetchResponse.name){
       return {
         name: fetchResponse.name,

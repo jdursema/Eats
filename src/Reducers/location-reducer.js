@@ -1,4 +1,4 @@
-const locationReducer = (state='Denver, CO', action) => {
+const locationReducer = (state='', action) => {
   switch (action.type) {
   case 'SET_LOCATION':
     return action.location;
