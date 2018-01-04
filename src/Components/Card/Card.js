@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ info, handleAddFav, user, history }) => {
+const Card = ({ info, handleAddFav, user, history, favorited }) => {
   let keys
   let mappedData
 

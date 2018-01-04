@@ -7,6 +7,8 @@ import { postAddFavorite } from '../../Actions';
 const CardContainer = props => {
   const mappedCards = props.cards.map((card)=>{
     if (card) {
+
+      
       return <Card 
         info= {card}
         handleAddFav = {props.handleAddFav}
@@ -15,6 +17,7 @@ const CardContainer = props => {
       />;
     }
   });
+
 
   return (
     <div className='card-container'>
@@ -31,7 +34,8 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
   cards: state.cards,
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
