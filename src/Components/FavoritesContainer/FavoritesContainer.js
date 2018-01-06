@@ -39,3 +39,6 @@ const mapStateToProps = state => ({
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(FavoritesContainer);
+
+
+

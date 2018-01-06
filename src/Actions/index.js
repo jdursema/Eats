@@ -96,3 +96,21 @@ export const removeFavoriteFromStore = (cardData)=> ({
   type: 'REMOVE_FAVORITE',
   cardData
 });
+
+
+export const fetchLocation = () => async (dispatch) => {
+  const fetchLocation = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDC7CylU8MdPkC3iKrzBb63HkNS2uJQJGM`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json' 
+    }
+  });
+  const fetchResponse = await fetchLocation.json();
+  console.log(fetchResponse)
+
+  dispatch(addLocationToStore(fetchResponse.location));
+}
+
+export const addLocationToStore = (locationObj) => ({
+  type: 'ADD_LOCATION',
+  locationObj
+})
