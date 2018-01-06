@@ -30,9 +30,9 @@ export const addUser = (email, username, password) => async (dispatch) => {
     });
 };
 
-export const fetchRestaurants = () => async (dispatch) => {
+export const fetchRestaurants = (lat, lng) => async (dispatch) => {
   try {
-    const fetchedData = await fetchRestaurantData();
+    const fetchedData = await fetchRestaurantData(lat, lng);
     dispatch(createCards(fetchedData));
 
   } catch (error){
@@ -108,6 +108,7 @@ export const fetchLocation = () => async (dispatch) => {
   console.log(fetchResponse)
 
   dispatch(addLocationToStore(fetchResponse.location));
+  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng))
 }
 
 export const addLocationToStore = (locationObj) => ({

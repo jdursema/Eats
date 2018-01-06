@@ -1,12 +1,12 @@
 import { apiKey } from './.apikey.js';
 
-export const fetchRestaurantData = async() => {
-  if(localStorage.cards){
-    const storedData = localStorage.getItem('cards')
-    const parsedStoredData=JSON.parse(storedData)
-    return parsedStoredData
-  } else{
-    const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/establishments?city_id=31&lat=39.73&lon=104.99
+export const fetchRestaurantData = async(lat, lng) => {
+  // if(localStorage.cards){
+  //   const storedData = localStorage.getItem('cards')
+  //   const parsedStoredData=JSON.parse(storedData)
+  //   return parsedStoredData
+  // } else{
+    const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/establishments?lat=${lat}&lon=${lng}
     `, {
         method: 'GET',
         headers: {
@@ -25,7 +25,7 @@ export const fetchRestaurantData = async() => {
     const stringifiedData = await JSON.stringify(fetchIndividualData);
     localStorage.setItem('cards', stringifiedData)
     return fetchIndividualData;
-  } 
+  // } 
 };
 
 
