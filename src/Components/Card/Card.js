@@ -1,9 +1,9 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ info, handleAddFav, user, history, favorited }) => {
-  let keys
-  let mappedData
+const Card = ({ info, handleAddFav, user, history, favorited, handleDeleteFav, favorites }) => {
+  let keys;
+  let mappedData;
 
   if (info.data){
     keys = Object.keys(info.data);
@@ -13,11 +13,16 @@ const Card = ({ info, handleAddFav, user, history, favorited }) => {
     });
   }
 
+  console.log(favorited)
+
   const handleFavClick = (info, user) => {
-    if (user.uid){
-      handleAddFav(info, user)
+    if (user.uid && !favorited){
+      handleAddFav(info, user);
+    } else if (user.uid && favorited){
+      const favoritedData = favorites.filter(favorite=> favorite.name === info.name)
+      handleDeleteFav(favoritedData[0], user);
     } else {
-      history.push('/login')
+      history.push('/login');
     }
   }
   

@@ -7,6 +7,7 @@ describe('userReducer', () => {
 
     expect(userReducer(undefined, {})).toEqual(expected);
   });
+  
   it('should add the user to state if logged in', () => {
     const user = {
       email: 'jmdursema@gmail.com',
