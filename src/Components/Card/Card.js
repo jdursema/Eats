@@ -1,37 +1,42 @@
 import React from 'react';
 import './Card.css';
+import PropTypes from 'prop-types';
 
-const Card = ({ info, handleAddFav, user, history, favorited, handleDeleteFav, favorites }) => {
+const Card = props => {
   let keys;
   let mappedData;
 
-  if (info.data){
-    keys = Object.keys(info.data);
-    console.log(keys)
+  if (props.info.data){
+    keys = Object.keys(props.info.data);
     mappedData = keys.map((key, index)=> {
-      return <p key={index}>{key}: {info.data[key]}</p>;
+      return <p key={index}>{key}: {props.info.data[key]}</p>;
     });
   }
 
-  console.log(favorited)
 
   const handleFavClick = (info, user) => {
-    if (user.uid && !favorited){
-      handleAddFav(info, user);
-    } else if (user.uid && favorited){
-      const favoritedData = favorites.filter(favorite=> favorite.name === info.name)
-      handleDeleteFav(favoritedData[0], user);
+    if (props.user.uid && !props.favorited){
+      props.handleAddFav(props.info, props.user);
+    } else if (props.user.uid && props.favorited){
+      const favoritedData = props.favorites.filter(favorite=> 
+        favorite.name === info.name);
+      props.handleDeleteFav(favoritedData[0], user);
     } else {
-      history.push('/login');
+      props.history.push('/login');
     }
-  }
+  };
   
 
   return (
     <div className = 'card'>
-      <p className='restaurant-name'>{info.name}</p>
+      <p className='restaurant-name'>
+        {props.info.name}
+      </p>
       {mappedData}
-      <button onClick={()=> { handleFavClick(info, user)}}>
+      <button 
+        onClick={()=> { 
+          handleFavClick(props.info, props.user);
+        }}>
         Fav
       </button>
     </div>
@@ -39,3 +44,14 @@ const Card = ({ info, handleAddFav, user, history, favorited, handleDeleteFav, f
 };
 
 export default Card;
+
+Card.propTypes = {
+  info: PropTypes.object,
+  handleAddFav: PropTypes.func,
+  user: PropTypes.object,
+  history: PropTypes.object,
+  favorited: PropTypes.bool,
+  handleDeleteFav: PropTypes.func,
+  favorites: PropTypes.array
+};
+

@@ -10,14 +10,14 @@ describe('All actions', () => {
     expect(actions.setLocation(location)).toEqual(expected);
   });
 
-  it ('has a type of LOGIN', () => {
+  it('has a type of LOGIN', () => {
     const user = {email: 'jmdursema@gmail.com',
-  password: 'password'}
+      password: 'password'};
     const expected = {
       type: 'LOGIN',
       user
-    }
+    };
     expect(actions.checkUser(user)).toEqual(expected);
-  })
+  });
 
-})
+});

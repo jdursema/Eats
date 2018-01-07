@@ -14,7 +14,7 @@ describe('cardReducer', () => {
       {name: 'Grace'}];
 
     const expected = [...restarantArray];
-    const action = actions.createCards(restarantArray)
+    const action = actions.createCards(restarantArray);
 
     expect(cardReducer(undefined, action)).toEqual(expected);
   });

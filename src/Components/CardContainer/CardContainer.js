@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card/Card'
+import Card from '../Card/Card';
 import './CardContainer.css';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
+import PropTypes from 'prop-types';
+
 
 
 const CardContainer = props => {
   const mappedCards = props.cards.map((card)=>{
     if (card) {
-      console.log(props.favorites)
-      
-      const favRestaurant = props.favorites.find(favRestaurant => favRestaurant.name === card.name)
+      const favRestaurant = props.favorites.find(favRestaurant => 
+        favRestaurant.name === card.name);
 
-      const favorited = favRestaurant ? true : false
+      const favorited = favRestaurant ? true : false;
       
       return <Card 
         info= {card}
@@ -38,7 +39,8 @@ const CardContainer = props => {
 const mapDispatchToProps = dispatch => ({
   handleAddFav: (cardData, user) => 
     dispatch(postAddFavorite(cardData, user)),
-  handleDeleteFav: (cardData, user) => dispatch(postDeleteFavorite(cardData, user))
+  handleDeleteFav: (cardData, user) => 
+    dispatch(postDeleteFavorite(cardData, user))
 });
 
 const mapStateToProps = state => ({
@@ -48,3 +50,8 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
+
+CardContainer.propTypes = {
+  cards: PropTypes.array,
+  favorites: PropTypes.array
+};

@@ -1,3 +1,6 @@
+/*eslint-disable max-len*/
+/*eslint-disable no-unused-vars*/
+/*eslint-disable id-blacklist*/
 import { auth, db } from '../firebase';
 import { fetchRestaurantData } from '../helper/helper';
 
@@ -8,8 +11,8 @@ export const setLocation = (location) => ({
 
 export const checkUser = (email, password) => async (dispatch) => {
   auth.signInWithEmailAndPassword(email, password).then((user)=>{
-    dispatch(signIn(user))
-    dispatch(retrieveFavorites(user))
+    dispatch(signIn(user));
+    dispatch(retrieveFavorites(user));
   }).catch((error) => {
     console.log(error);
   });
@@ -51,31 +54,30 @@ export const addFavoriteToState = (cardData) => ({
 });
 
 export const postAddFavorite = (cardData, user) => async (dispatch) => {
-  const data = await db.ref('users/' + user.uid).push({
+  const favoritesData = await db.ref('users/' + user.uid).push({
     cardData
   });
-  const id= await {cardId: data.path.pieces_[2]};
+  const id= await {cardId: favoritesData.path.pieces_[2]};
   const newCardData = {...cardData, ...id};
-  console.log(id)
-  const replaceData = await db.ref('users/' + user.uid + '/' + data.path.pieces_[2] ).update({cardData: newCardData});
+  const replaceData = await db.ref('users/' + user.uid + '/' + favoritesData.path.pieces_[2] )
+    .update({cardData: newCardData});
   dispatch(addFavoriteToState(newCardData)); 
 };
 
 export const retrieveFavorites = (user) => async (dispatch) => {
-
-
-  const favoritesFetch = auth[user.uid];
-
-  
-  const favorites = await db.ref('/users/' + user.uid ).once('value').then(function(snapshot) {
-   return snapshot.val() || [];
-  });
+  // const favoritesFetch = auth[user.uid];
+  const favorites = await db.ref('/users/' + user.uid )
+    .once('value').then(function(snapshot) {
+      return snapshot.val() || [];
+    });
   
   const arrayKeys = Object.keys(favorites);
   const arrayOfObjects = arrayKeys.map((keys)=> {
-    return Object.assign({}, {name: favorites[keys].cardData.name}, {data: favorites[keys].cardData.data}, {cardId: favorites[keys].cardData.cardId})
+    return Object.assign({}, 
+      {name: favorites[keys].cardData.name}, 
+      {data: favorites[keys].cardData.data}, 
+      {cardId: favorites[keys].cardData.cardId});
   });
-  console.log(arrayOfObjects);
   dispatch(addUserFavorites(arrayOfObjects));
 
 };
@@ -86,10 +88,10 @@ export const addUserFavorites = (array)=> ({
 });
 
 export const postDeleteFavorite = (cardData, user) => async (dispatch) => {
-  console.log(cardData)
-  const data = await db.ref('users/' + user.uid + '/' + cardData.cardId).remove();
+  const removeFavoritesData = await db.ref('users/' + user.uid + '/' + cardData.cardId)
+    .remove();
 
-  dispatch(removeFavoriteFromStore(cardData))
+  dispatch(removeFavoriteFromStore(cardData));
 };
 
 export const removeFavoriteFromStore = (cardData)=> ({
@@ -105,13 +107,12 @@ export const fetchLocation = () => async (dispatch) => {
     }
   });
   const fetchResponse = await fetchLocation.json();
-  console.log(fetchResponse)
 
   dispatch(addLocationToStore(fetchResponse.location));
-  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng))
-}
+  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
+};
 
 export const addLocationToStore = (locationObj) => ({
   type: 'ADD_LOCATION',
   locationObj
-})
+});
