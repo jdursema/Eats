@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setLocation } from '../../Actions';
+import PropTypes from 'prop-types';
+
 
 class LocationForm extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       location: ''
     };
   }
 
   handleLocationChange = event => {
-    this.setState({location : event.target.value})
+    this.setState({location : event.target.value});
   }
 
 
@@ -26,7 +28,10 @@ class LocationForm extends Component {
             value={this.state.location}/>
           <input 
             type='submit' 
-            onClick={(event)=>{event.preventDefault(), this.props.handleLocation(this.state.location)}}/>
+            onClick={(event)=>{
+              event.preventDefault(),
+              this.props.handleLocation(this.state.location);
+            }}/>
         </form>
       </div>
     );
@@ -38,3 +43,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(LocationForm);
+
+
+LocationForm.propTypes = {
+  handleLocation: PropTypes.func
+};

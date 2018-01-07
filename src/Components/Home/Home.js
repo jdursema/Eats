@@ -1,8 +1,9 @@
+/*eslint-disable max-len*/
+
 import React, {Component} from 'react';
 import './Home.css';
 import { connect } from 'react-redux';
 import { fetchRestaurants } from '../../Actions';
-import CardConatainer from '../CardContainer/CardContainer';
 import { NavLink } from 'react-router-dom';
 
 
