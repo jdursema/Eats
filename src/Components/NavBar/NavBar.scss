@@ -1,15 +1,17 @@
 header{
-  background-color: #140802;
-  opacity: .9;
+  background-color: #0F2130;
+  // opacity: .9;
   h1{
     color: white;
-    font-family:  Courier New, Courier, monospace;
+    font-family: 'IM Fell English SC', serif;
     font-weight: lighter;
     font-size: 80px;
     margin: 0;
   }
   p{
     color: white;
+    font-family: 'Raleway', sans-serif;
+
   }
   .title{
     display: flex;
@@ -23,7 +25,9 @@ header{
       color: white;
       text-decoration: none;
       padding: 1%;
+      font-family: 'Raleway', sans-serif;
     }
+    
   }
-
+  
 }
