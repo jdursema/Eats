@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setLocation } from '../../Actions';
+import { getLocation } from '../../Actions';
 import PropTypes from 'prop-types';
 
 
@@ -39,7 +39,7 @@ class LocationForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleLocation: location => dispatch(setLocation(location))
+  handleLocation: location => dispatch(getLocation(location))
 });
 
 export default connect(null, mapDispatchToProps)(LocationForm);

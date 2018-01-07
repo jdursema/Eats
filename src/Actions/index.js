@@ -4,6 +4,19 @@
 import { auth, db } from '../firebase';
 import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
+import { async } from '@firebase/util';
+
+export const getLocation = (location) => async dispatch => {
+  console.log(location)
+  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`)
+
+  const fetchResponse = await fetchLocation.json()
+  const locationData = fetchResponse.results[0]
+  console.log(locationData)
+  const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
+  )
+  dispatch(setLocation(cleanData))
+}
 
 export const setLocation = (location) => ({
   type: 'SET_LOCATION',
