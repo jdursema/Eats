@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './NavBar.css';
-import { fetchLocation, fetchRestaurants } from '../../Actions';
+import { fetchLocation } from '../../Actions';
+import PropTypes from 'prop-types';
 
 class NavBar extends Component {
   constructor () {
@@ -17,14 +18,13 @@ class NavBar extends Component {
  
     try { 
       this.props.handleLocation();
-    } catch(error){
-      console.log(error)
+    } catch (error){
+      console.log(error);
     }
   }
 
   render(){
-    console.log(this.props.location)
-    return(
+    return (
       <header>
         <div className='title'>
           <div className='left-nav'>
@@ -60,3 +60,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+
+
+NavBar.propTypes = {
+  handleLocation: PropTypes.func,
+  location: PropTypes.obj
+};
