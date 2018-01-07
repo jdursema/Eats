@@ -1,13 +1,7 @@
 import { apiKey } from './.apikey.js';
 
 export const fetchRestaurantData = async(lat, lng) => {
-  // if(localStorage.cards){
-  //   const storedData = localStorage.getItem('cards')
-  //   const parsedStoredData=JSON.parse(storedData)
-  //   return parsedStoredData
-  // } else{
-    const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/establishments?lat=${lat}&lon=${lng}
-    `, {
+    const fetchData = await fetch('https://developers.zomato.com/api/v2.1/geocode?lat=39.754103199999996&lon=-105.0002242', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -15,44 +9,27 @@ export const fetchRestaurantData = async(lat, lng) => {
         }
       });
     const fetchResponse = await fetchData.json();
-    // console.log(fetchResponse);
-  
-    const restaurantArray = await fetchResponse.establishments;
-  
-    // console.log(restaurantArray)
-    const fetchIndividualData = await fetchIndividualRestaurantData(restaurantArray)
-    console.log(fetchIndividualData)
-    const stringifiedData = await JSON.stringify(fetchIndividualData);
-    localStorage.setItem('cards', stringifiedData)
-    return fetchIndividualData;
-  // } 
+    
+    const restaurantArray = await fetchResponse.nearby_restaurants;
+    const cleanData = await cleanRestaurantData(restaurantArray)
+
+    console.log(cleanData);
+    return cleanData;
+   
 };
 
-
-const fetchIndividualRestaurantData = (restaurantArray) => {
-  const restaurantId = restaurantArray.map( async(restaurantObj)=> {
-    const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${ restaurantObj.establishment.id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'user-key':  apiKey
+const cleanRestaurantData =(restaurantArray) => {
+  return restaurantArray.map((restaurant)=>{
+    return {
+      name: restaurant.restaurant.name,
+      data: {
+        Cuisines: restaurant.restaurant.cuisines,
+        Address: restaurant.restaurant.location.address,
+        Average_Price: restaurant.restaurant.price_range,
+        CostForTwo: restaurant.restaurant.average_cost_for_two,
+        Rating: restaurant.restaurant.user_rating.aggregate_rating
       }
-    });
-    const fetchResponse = await fetchData.json();
-    if (fetchResponse.name){
-      return {
-        name: fetchResponse.name,
-        data: {
-          priceRange: fetchResponse.price_range,
-          avgCost: fetchResponse.average_cost_for_two,
-          cusisines: fetchResponse.cuisines,
-          reservations: fetchResponse.has_table_booking,
-          delivery: fetchResponse.has_online_delivery,
-          rating: fetchResponse.user_rating.aggregate_rating,
-          address: fetchResponse.location.address
-        }
-      };
-    }   
+    };
+    
   });
-  return Promise.all(restaurantId);
 };
