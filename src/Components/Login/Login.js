@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { checkUser, retrieveFavorites } from '../../Actions';
+import { checkUser } from '../../Actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 
 class Login extends Component {
   constructor(){
@@ -37,8 +39,9 @@ class Login extends Component {
           name='password' 
           value={this.state.password}/>
         <button onClick={ (event)=>{
-          event.preventDefault()
-          this.props.handleLogin(this.state.email, this.state.password)}}>
+          event.preventDefault();
+          this.props.handleLogin(this.state.email, this.state.password);
+        }}>
             Login
         </button>
       </form>
@@ -53,3 +56,8 @@ const mapDispatchToProps = dispatch => ({
     
 
 export default connect(null, mapDispatchToProps)(Login);
+
+
+Login.propTypes = {
+  handleLogin: PropTypes.func
+};
