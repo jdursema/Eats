@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../../Actions'
+import { addUser } from '../../Actions';
+import PropTypes from 'prop-types';
 
 class SignUp extends Component {
   constructor() {
@@ -47,16 +48,27 @@ class SignUp extends Component {
           name='password' 
           value={this.state.password}/>
         <button
-          onClick={(event)=>{event.preventDefault()
-            this.props.handleSignUp(this.state.email, this.state.username,this.state.password)}}>Create Users</button>
+          onClick={(event)=>{
+            event.preventDefault();
+            this.props.handleSignUp(this.state.email,
+              this.state.username,
+              this.state.password);
+          }}>
+            Create Users
+        </button>
       </form>
 
-    )
+    );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleSignUp: (email, username, password) => dispatch(addUser(email, username, password))
+  handleSignUp: (email, username, password) => 
+    dispatch(addUser(email, username, password))
 });
 
 export default  connect(null, mapDispatchToProps)(SignUp);
+
+SignUp.propTypes = {
+  handleSignUp: PropTypes.func
+};
