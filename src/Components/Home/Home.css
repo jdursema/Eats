@@ -1,2 +1,20 @@
 .home {
-  background-color: magenta; }
+  text-align: center;
+  background-image: url("../../assets/Food.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: -100px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  background-color: #0F2130; }
+  .home h1 {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 100px; }
+  .home h3 {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    width: 30%; }

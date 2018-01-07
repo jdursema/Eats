@@ -8,21 +8,11 @@ import { NavLink } from 'react-router-dom';
 
 
 class Home extends Component {  
-
-  async componentDidMount() {
-    //if localstorage.cards then render storage and set it in store else fetch
-    try {
-      this.props.handleFetchRestaurants();
-    } catch (error){
-      console.log(error);
-    }
-  }
-
   render () {
     return (
       <div className='home'>
         <h1>Welcome to Eats</h1>
-        <h3>Find your new favorite restuaurant today!</h3>
+        <h3>Look up resaurants and get recommendations based on places you already love. Your next favorite eatery is waiting to be discovered!</h3>
         <NavLink to='/login'>Login</NavLink>
       </div>
       
