@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from '../NavBar/NavBar';
 import FavoritesContainer from '../FavoritesContainer/FavoritesContainer';
-import Recomendations from '../Recomendations/Recomendations';
+import Recommendations from '../Recomendations/Recomendations';
 import LocationForm from '../LocationForm/LocationForm';
 import { Route } from 'react-router-dom';
 import Home from '../Home/Home';
@@ -17,7 +17,7 @@ const App = () => {
       <div>
         <Route exact path='/' component={Home} />
         <Route path='/favorites' component={FavoritesContainer}/>
-        <Route path='/recomendations' component={Recomendations}/>
+        <Route path='/recommendations' component={Recommendations}/>
         <Route path='/location' component={LocationForm}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>

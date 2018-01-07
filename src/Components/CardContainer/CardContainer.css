@@ -3,3 +3,10 @@
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap; }
+
+.loading {
+  background-image: url("./WineWaiting.gif");
+  background-position: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh; }

@@ -2,7 +2,8 @@
 /*eslint-disable no-unused-vars*/
 /*eslint-disable id-blacklist*/
 import { auth, db } from '../firebase';
-import { fetchRestaurantData } from '../helper/helper';
+import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
+import { getCuisineRecommendations } from '../helper/helper2';
 
 export const setLocation = (location) => ({
   type: 'SET_LOCATION',
@@ -110,9 +111,38 @@ export const fetchLocation = () => async (dispatch) => {
 
   dispatch(addLocationToStore(fetchResponse.location));
   dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
+  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng))
 };
 
 export const addLocationToStore = (locationObj) => ({
   type: 'ADD_LOCATION',
   locationObj
+});
+
+
+export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
+  const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
+  console.log(recommendationsArray)
+  dispatch(addRecommendationsToStore(recommendationsArray))
+};
+
+export const addRecommendationsToStore = (recommendationsArray) => ({
+  type: 'ADD_RECOMMENDATIONS',
+  recommendationsArray
+});
+
+
+export const fetchCuisines = (lat, lng) => async (dispatch) => {
+  try {
+    const fetchedData = await fetchCuisineIds(lat, lng);
+    dispatch(addCusineIdsToStore(fetchedData));
+
+  } catch (error){
+    console.log(error);
+  }
+};
+
+export const addCusineIdsToStore = (CuisinesArray) => ({
+  type: 'ADD_CUISINES',
+  CuisinesArray
 });

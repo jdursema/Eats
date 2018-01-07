@@ -3,7 +3,7 @@ const favoritesReducer = (state=[], action) => {
   case 'ADD_FAVORITE':
     return [...state, action.cardData];
   case 'ADD_USER_FAVORITES':
-    return [...state, ...action.array];
+    return [...action.array];
   case 'REMOVE_FAVORITE':
     return state.filter(restaurant => restaurant.name !== action.cardData.name);
   default:
