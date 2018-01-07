@@ -3,8 +3,25 @@
 
 import { apiKey } from './.apikey.js';
 
+export const fetchCuisineIds = async(lat, lng) => {
+
+  const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/cuisines?lat=${lat}&lon=${lng}
+  `, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'user-key':  apiKey
+    }
+
+  });
+  const fetchResponse = await fetchData.json();
+    // console.log(fetchResponse)
+  return fetchResponse.cuisines
+}
+
 export const fetchRestaurantData = async(lat, lng) => {
-  const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/geocode?lat=${lat}&lon=${lng}`, {
+  const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/search?lat=${lat}lon=${lng}
+  `, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -12,8 +29,9 @@ export const fetchRestaurantData = async(lat, lng) => {
     }
   });
   const fetchResponse = await fetchData.json();
-    
-  const restaurantArray = await fetchResponse.nearby_restaurants;
+    console.log(fetchResponse)
+  const restaurantArray = await fetchResponse.restaurants;
+  console.log(restaurantArray)
   const cleanData = await cleanRestaurantData(restaurantArray);
 
   return cleanData;

@@ -41,7 +41,7 @@ class NavBar extends Component {
           <NavLink to='/' className='nav'>Home</NavLink>
           <NavLink to='/suggestions' className='nav'>Places Near You</NavLink>
           <NavLink to='/favorites' className='nav'>Favorites</NavLink>
-          <NavLink to='/recomendations' className='nav'>Recomendations</NavLink>
+          <NavLink to='/recommendations' className='nav'>Recommendations</NavLink>
           <NavLink to='/location' className='nav'>Change Location</NavLink>
         </div>
       </header>
@@ -64,5 +64,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 
 NavBar.propTypes = {
   handleLocation: PropTypes.func,
-  location: PropTypes.obj
+  location: PropTypes.object
 };

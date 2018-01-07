@@ -15,15 +15,23 @@ const CardContainer = props => {
 
       const favorited = favRestaurant ? true : false;
       
-      return <Card 
-        info= {card}
-        handleAddFav = {props.handleAddFav}
-        handleDeleteFav = {props.handleDeleteFav}
-        user = {props.user}
-        history = {props.history}
-        favorited = {favorited}
-        favorites = {props.favorites}
-      />;
+      if (props.cards[0]){
+        return <Card 
+          info= {card}
+          handleAddFav = {props.handleAddFav}
+          handleDeleteFav = {props.handleDeleteFav}
+          user = {props.user}
+          history = {props.history}
+          favorited = {favorited}
+          favorites = {props.favorites}
+        />;
+      } else {
+        return (
+          <div className='loading'>
+          </div>
+        );
+      }
+      
     }
   });
 
