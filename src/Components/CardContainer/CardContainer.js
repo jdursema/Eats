@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import './CardContainer.css';
-import { postAddFavorite, postDeleteFavorite } from '../../Actions';
+
 import PropTypes from 'prop-types';
 
 
@@ -44,20 +43,9 @@ const CardContainer = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  handleAddFav: (cardData, user) => 
-    dispatch(postAddFavorite(cardData, user)),
-  handleDeleteFav: (cardData, user) => 
-    dispatch(postDeleteFavorite(cardData, user))
-});
 
-const mapStateToProps = state => ({
-  cards: state.cards,
-  user: state.user,
-  favorites: state.favorites
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
+export default CardContainer;
 
 CardContainer.propTypes = {
   cards: PropTypes.array,
