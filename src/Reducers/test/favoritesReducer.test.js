@@ -1,3 +1,5 @@
+/*eslint-disable max-len*/
+
 import * as actions from '../../Actions/index';
 import favoriteReducer from '../favorites-reducer';
 
@@ -43,7 +45,7 @@ describe('favoriteReducer', () => {
       {name: 'Duck Fat'},
       {name: 'Scales'}, 
       {name: 'Grace'}];
-    const restaurant = {name: 'Duck Fat'}
+    const restaurant = {name: 'Duck Fat'};
 
     const expected = [
       {name: 'Scales'}, 

@@ -1,3 +1,4 @@
+/*eslint-disable camelcase*/
 import cuisineReducer from '../cuisine-reducer';
 import * as actions from '../../Actions/index';
 
@@ -18,9 +19,9 @@ describe('cuisineReducer', () => {
     const expected = cuisineArray;
     
     const action = 
-      actions.addCusineIdsToStore(cuisineArray)
+      actions.addCusineIdsToStore(cuisineArray);
 
-    expect(cuisineReducer([], action)).toEqual(expected)
+    expect(cuisineReducer([], action)).toEqual(expected);
   });
 
   it('should replace the prior state when a new cuisine array is added', () => {
@@ -28,7 +29,7 @@ describe('cuisineReducer', () => {
       {cuisine_name: 'Italian',
         cuisine_id: 45},
       {cuisine_name: 'Thai',
-        cuisine_id: 77}]
+        cuisine_id: 77}];
 
     const cuisineArray = [
       {cuisine_name: 'Chinese',

@@ -2,8 +2,6 @@
 
 import React from 'react';
 import './Home.css';
-import { connect } from 'react-redux';
-import { fetchRestaurants } from '../../Actions';
 import { NavLink } from 'react-router-dom';
 
 
@@ -21,7 +19,7 @@ const Home  = () => {
     </div>
     
   );
-} 
+}; 
 
 
 export default Home;

@@ -1,3 +1,4 @@
+/*eslint-disable max-len*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getLocation } from '../../Actions';
@@ -45,11 +46,13 @@ const mapStateToProps = state => ({
   favorites: state.favorites,
   cuisine: state.cuisine
 
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationForm);
 
 
 LocationForm.propTypes = {
-  handleLocation: PropTypes.func
+  handleLocation: PropTypes.func,
+  favorites: PropTypes.array,
+  cuisine: PropTypes.array
 };

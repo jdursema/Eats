@@ -7,12 +7,8 @@ import PropTypes from 'prop-types';
 
 class NavBar extends Component {
 
-  async componentDidMount(){
-    try { 
-      this.props.handleLocation();
-    } catch (error){
-      console.log(error);
-    }
+  async componentDidMount(){ 
+    this.props.handleLocation();
   }
 
   render(){
@@ -25,16 +21,30 @@ class NavBar extends Component {
           </div>
           <h1>Eats</h1>
           <div className='right-nav'>
-            <NavLink to='/signup' className='nav'>SignUp</NavLink>
-            <NavLink to='/login' className='nav'>Login</NavLink>
+            <NavLink to='/signup' className='nav'>
+              SignUp
+            </NavLink>
+            <NavLink to='/login' className='nav'>
+              Login
+            </NavLink>
           </div>
         </div>
         <div className='nav-bar'>
-          <NavLink to='/' className='nav'>Home</NavLink>
-          <NavLink to='/suggestions' className='nav'>Places Near You</NavLink>
-          <NavLink to='/favorites' className='nav'>Favorites</NavLink>
-          <NavLink to='/recommendations' className='nav'>Recommendations</NavLink>
-          <NavLink to='/location' className='nav'>Change Location</NavLink>
+          <NavLink to='/' className='nav'>
+            Home
+          </NavLink>
+          <NavLink to='/suggestions' className='nav'>
+            Places Near You
+          </NavLink>
+          <NavLink to='/favorites' className='nav'>
+            Favorites
+          </NavLink>
+          <NavLink to='/recommendations' className='nav'>
+            Recommendations
+          </NavLink>
+          <NavLink to='/location' className='nav'>
+            Change Location
+          </NavLink>
         </div>
       </header> 
     );

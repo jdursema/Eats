@@ -1,3 +1,4 @@
+/*eslint-disable max-len*/
 import recommendationsReducer from '../recommendations-reducer';
 import * as actions from '../../Actions/index';
 
@@ -27,7 +28,7 @@ describe('recommendationsReducer', () => {
       {name: 'Fore Street'},
       {name: 'The Corner Room'},
       {name: 'Nosh'}
-    ]
+    ];
 
     const restuarantArray = [
       {name: 'Scales'}, 

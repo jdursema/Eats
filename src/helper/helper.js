@@ -7,20 +7,18 @@ export const fetchCuisineIds = async(lat, lng) => {
 
   const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/cuisines?lat=${lat}&lon=${lng}
   `, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'user-key':  apiKey
-    }
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'user-key':  apiKey
+      }
 
-  });
+    });
   const fetchResponse = await fetchData.json();
-  return fetchResponse.cuisines
-}
+  return fetchResponse.cuisines;
+};
 
 export const fetchRestaurantData = async(lat, lng) => {
-  console.log(lat)
-  console.log(lng)
   const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/search?lat=${lat}&lon=${lng}`, {
     method: 'GET',
     headers: {
@@ -29,13 +27,10 @@ export const fetchRestaurantData = async(lat, lng) => {
     }
   });
   const fetchResponse = await fetchData.json();
-    console.log(fetchResponse)
   const restaurantArray = await fetchResponse.restaurants;
-  console.log(restaurantArray)
   const cleanData = await cleanRestaurantData(restaurantArray);
 
   return cleanData;
-   
 };
 
 const cleanRestaurantData =(restaurantArray) => {
@@ -50,6 +45,5 @@ const cleanRestaurantData =(restaurantArray) => {
         Rating: restaurant.restaurant.user_rating.aggregate_rating
       }
     };
-    
   });
 };
