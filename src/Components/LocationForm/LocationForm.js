@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setLocation } from '../../Actions';
+import { getLocation } from '../../Actions';
 import PropTypes from 'prop-types';
-
 
 class LocationForm extends Component {
   constructor() {
@@ -30,7 +29,7 @@ class LocationForm extends Component {
             type='submit' 
             onClick={(event)=>{
               event.preventDefault(),
-              this.props.handleLocation(this.state.location);
+              this.props.handleLocation(this.state.location, this.props.favorites, this.props.cuisine);
             }}/>
         </form>
       </div>
@@ -39,10 +38,16 @@ class LocationForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleLocation: location => dispatch(setLocation(location))
+  handleLocation: (location, favsArray, cuisineArray) => dispatch(getLocation(location, favsArray, cuisineArray))
 });
 
-export default connect(null, mapDispatchToProps)(LocationForm);
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  cuisine: state.cuisine
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationForm);
 
 
 LocationForm.propTypes = {

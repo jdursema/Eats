@@ -4,11 +4,101 @@
 import { auth, db } from '../firebase';
 import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
+import { async } from '@firebase/util';
 
-export const setLocation = (location) => ({
-  type: 'SET_LOCATION',
-  location
+export const fetchLocation = () => async (dispatch) => {
+  const fetchLocation = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDC7CylU8MdPkC3iKrzBb63HkNS2uJQJGM`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json' 
+    }
+  });
+  const fetchResponse = await fetchLocation.json();
+  console.log(fetchResponse.location)
+
+  dispatch(addLocationToStore(fetchResponse.location));
+  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
+  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng))
+};
+
+export const addLocationToStore = (locationObj) => ({
+  type: 'ADD_LOCATION',
+  locationObj
 });
+
+
+export const fetchRestaurants = (lat, lng) => async (dispatch) => {
+  try {
+    const fetchedData = await fetchRestaurantData(lat, lng);
+    dispatch(addCardsToStore(fetchedData));
+  } catch (error){
+    console.log(error);
+  }
+};
+
+export const addCardsToStore = (restaurantArray) => ({ 
+  type: 'CREATE_CARDS',
+  restaurantArray
+});
+
+export const fetchCuisines = (lat, lng) => async (dispatch) => {
+  try {
+    const fetchedData = await fetchCuisineIds(lat, lng);
+    dispatch(addCusineIdsToStore(fetchedData));
+
+    console.log(fetchedData)
+  } catch (error){
+    console.log(error);
+  }
+};
+
+export const addCusineIdsToStore = (CuisinesArray) => ({
+  type: 'ADD_CUISINES',
+  CuisinesArray
+});
+
+
+export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
+  const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
+  dispatch(addRecommendationsToStore(recommendationsArray))
+};
+
+
+export const addRecommendationsToStore = (recommendationsArray) => ({
+  type: 'ADD_RECOMMENDATIONS',
+  recommendationsArray
+});
+
+export const getLocation = (location, favsArray, cuisineArray) => async dispatch => {
+  console.log(location)
+  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`)
+
+  const fetchResponse = await fetchLocation.json()
+  const locationData = fetchResponse.results[0]
+  const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
+  );
+
+  console.log(cleanData.lat)
+
+  dispatch(addLocationToStore(cleanData));
+  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng))
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const checkUser = (email, password) => async (dispatch) => {
   auth.signInWithEmailAndPassword(email, password).then((user)=>{
@@ -34,20 +124,7 @@ export const addUser = (email, username, password) => async (dispatch) => {
     });
 };
 
-export const fetchRestaurants = (lat, lng) => async (dispatch) => {
-  try {
-    const fetchedData = await fetchRestaurantData(lat, lng);
-    dispatch(createCards(fetchedData));
 
-  } catch (error){
-    console.log(error);
-  }
-};
-
-export const createCards = (restaurantArray) => ({ 
-  type: 'CREATE_CARDS',
-  restaurantArray
-});
 
 export const addFavoriteToState = (cardData) => ({
   type: 'ADD_FAVORITE',
@@ -101,48 +178,4 @@ export const removeFavoriteFromStore = (cardData)=> ({
 });
 
 
-export const fetchLocation = () => async (dispatch) => {
-  const fetchLocation = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDC7CylU8MdPkC3iKrzBb63HkNS2uJQJGM`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json' 
-    }
-  });
-  const fetchResponse = await fetchLocation.json();
 
-  dispatch(addLocationToStore(fetchResponse.location));
-  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
-  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng))
-};
-
-export const addLocationToStore = (locationObj) => ({
-  type: 'ADD_LOCATION',
-  locationObj
-});
-
-
-export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
-  const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
-  console.log(recommendationsArray)
-  dispatch(addRecommendationsToStore(recommendationsArray))
-};
-
-export const addRecommendationsToStore = (recommendationsArray) => ({
-  type: 'ADD_RECOMMENDATIONS',
-  recommendationsArray
-});
-
-
-export const fetchCuisines = (lat, lng) => async (dispatch) => {
-  try {
-    const fetchedData = await fetchCuisineIds(lat, lng);
-    dispatch(addCusineIdsToStore(fetchedData));
-
-  } catch (error){
-    console.log(error);
-  }
-};
-
-export const addCusineIdsToStore = (CuisinesArray) => ({
-  type: 'ADD_CUISINES',
-  CuisinesArray
-});

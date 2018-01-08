@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
-import CardContainer from '../CardContainer/CardContainer';
+import PlacesNearYou from '../PlacesNearYou/PlacesNearYou';
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
         <Route path='/location' component={LocationForm}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
-        <Route path='/suggestions' component= {CardContainer} />
+        <Route path='/suggestions' component= {PlacesNearYou} />
       </div>
     </div>
   );
