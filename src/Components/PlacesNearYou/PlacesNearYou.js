@@ -3,13 +3,14 @@ import CardContainer from '../CardContainer/CardContainer';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './PlacesNearYou.css'
 
 
 const PlacesNearYou = props => {
  
   return (
-    <div>
-      <h1>Restaurants near you based on your current location</h1>
+    <div className='places-near-you'>
+      <h1>Find a restuarant right around the corner...</h1>
       <CardContainer
         cards = {props.cards}
         handleAddFav= {props.handleAddFav}

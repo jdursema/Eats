@@ -16,17 +16,11 @@ class NavBar extends Component {
       <header>
         <div className='title'>
           <div className='left-nav'>
-            <p>Hello, Guest!</p>
-            <p>Your Location:</p>
+            <p>Hello! {this.props.user.email}</p>
           </div>
           <h1>Eats</h1>
           <div className='right-nav'>
-            <NavLink to='/signup' className='nav'>
-              SignUp
-            </NavLink>
-            <NavLink to='/login' className='nav'>
-              Login
-            </NavLink>
+            <p>Your Location: {this.props.location.name}</p>
           </div>
         </div>
         <div className='nav-bar'>
@@ -52,7 +46,8 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  location: state.location
+  location: state.location,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -65,5 +60,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 
 NavBar.propTypes = {
   handleLocation: PropTypes.func,
-  location: PropTypes.object
+  location: PropTypes.object,
+  user: PropTypes.object
 };

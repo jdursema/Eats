@@ -1,8 +1,9 @@
 .card-container {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap; }
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-between; }
 
 .loading {
   background-image: url("./WineWaiting.gif");

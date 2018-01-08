@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CardContainer from '../CardContainer/CardContainer';
 import { postAddFavorite, postDeleteFavorite, fetchRecommendations } from '../../Actions';
 import PropTypes from 'prop-types';
+import './Recommendations.css'
 
 class Recommendations extends Component {
 
@@ -12,8 +13,8 @@ class Recommendations extends Component {
   }
   render(){
     return (
-      <div>
-        <h1>Recommendations based on your favorites</h1>
+      <div className='recommendations'>
+        <h1>Places you just MIGHT love...</h1>
         <CardContainer
           cards = {this.props.recommendations}
           handleAddFav= {this.props.handleAddFav}

@@ -26,21 +26,38 @@ const Card = props => {
     }
   };
   
-
-  return (
-    <div className = 'card'>
-      <p className='restaurant-name'>
-        {props.info.name}
-      </p>
-      {mappedData}
-      <button 
-        onClick={()=> { 
-          handleFavClick(props.info, props.user);
-        }}>
-        Fav
-      </button>
-    </div>
-  ); 
+  if(props.favorited){
+    return (
+      <div className = 'card favorite'>
+        <p className='restaurant-name'>
+          {props.info.name}
+        </p>
+        {mappedData}
+        <button 
+          onClick={()=> { 
+            handleFavClick(props.info, props.user);
+          }}>
+          Unfavorite
+        </button>
+      </div>
+    );
+  } else {
+    return (
+      <div className = 'card'>
+        <p className='restaurant-name'>
+          {props.info.name}
+        </p>
+        {mappedData}
+        <button 
+          onClick={()=> { 
+            handleFavClick(props.info, props.user);
+          }}>
+          Favorite
+        </button>
+      </div>
+    ); 
+  }
+  
 };
 
 export default Card;

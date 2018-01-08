@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
+import './FavoritesContainer.css'
 
 
 const FavoritesContainer = props => {
   return (
-    <div>
-      <h1>Your favorite restaurants</h1>
+    <div className='favorites'>
+      <h1>Places you already love...</h1>
       <CardContainer
         cards = {props.favorites}
         handleAddFav= {props.handleAddFav}
