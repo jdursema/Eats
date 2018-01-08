@@ -6,16 +6,8 @@ import { fetchLocation } from '../../Actions';
 import PropTypes from 'prop-types';
 
 class NavBar extends Component {
-  constructor () {
-    super();
-    this.state = {
-    };
-  }
-
-  
 
   async componentDidMount(){
- 
     try { 
       this.props.handleLocation();
     } catch (error){
@@ -44,8 +36,7 @@ class NavBar extends Component {
           <NavLink to='/recommendations' className='nav'>Recommendations</NavLink>
           <NavLink to='/location' className='nav'>Change Location</NavLink>
         </div>
-      </header>
-      
+      </header> 
     );
   }
 }
