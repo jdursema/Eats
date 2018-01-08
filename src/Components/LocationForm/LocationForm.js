@@ -23,11 +23,13 @@ class LocationForm extends Component {
       <div className='location-form'>
         <h3>Where are you looking to eat?</h3>
         <form>
-          <input 
+          <input
+            className='location-input' 
             type='text' 
             onChange={this.handleLocationChange} 
             value={this.state.location}/>
           <input 
+            className='submit-location'
             type='submit' 
             onClick={(event)=>{
               event.preventDefault(),

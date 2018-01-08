@@ -1,4 +1,5 @@
 .location-form{
+  margin: 2% auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,4 +8,21 @@
   padding: 5%;
   align-content: center;
   align-self: center;
+  font-family: 'Raleway', sans-serif;
+  color: #0F2130;
+  h3{
+    border-bottom: lightgrey solid 1px;
+    padding: 2%;
+  }
+  .location-input{
+    height: 18px;
+    width: 200px;
+  }
+  .submit-location{
+    background-color: #0F2130;
+    color: white;
+    border: solid 1px #0F2130;
+    font-size: 16px;
+
+  }
 }
