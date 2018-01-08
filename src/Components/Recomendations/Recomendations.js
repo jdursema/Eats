@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchRecommendations } from '../../Actions';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
+import CardContainer from '../CardContainer/CardContainer'
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 
 class Recommendations extends Component {
@@ -9,35 +10,21 @@ class Recommendations extends Component {
   async componentDidMount(){
     this.props.handleRecommendations(this.props.favorites, this.props.location, this.props.cuisine)
   }
-
-  mappedCards (){
-    const cards = this.props.recommendations.map((card)=> {
-      const favRestaurant = this.props.favorites.find(favRestaurant => 
-        favRestaurant.name === card.name);
-  
-      const favorited = favRestaurant ? true : false;
-
-      return <Card 
-        info= {card}
-        handleAddFav = {this.props.handleAddFav}
-        handleDeleteFav = {this.props.handleDeleteFav}
-        user = {this.props.user}
-        history = {this.props.history}
-        favorited = {favorited}
-        favorites = {this.props.favorites}/>;
-    });
-
-    return cards;
-  }
-
-  render() {
+  render(){
     return (
       <div>
-        {this.mappedCards()}
+        <h1>Recommendations based on your favorites</h1>
+        <CardContainer
+          cards = {this.props.recommendations}
+          handleAddFav= {this.props.handleAddFav}
+          handleDeleteFav = {this.props.handleDeleteFav}
+          user = {this.props.user}
+          history = {this.props.history} 
+          favorites = {this.props.favorites}
+        />
       </div>
     );
   }
-  
 }
 
 const mapStateToProps = state => ({
