@@ -22,3 +22,7 @@
     color: #0F2130;
     font-family: 'Raleway', sans-serif;
     font-size: 14px; }
+
+    .favorite{
+      border: gold 2px solid;
+    }
