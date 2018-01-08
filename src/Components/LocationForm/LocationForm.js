@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getLocation } from '../../Actions';
 import PropTypes from 'prop-types';
+import './LocationForm.css';
 
 class LocationForm extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class LocationForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className='location-form'>
         <h3>Where are you looking to eat?</h3>
         <form>
           <input 
