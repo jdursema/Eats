@@ -8,6 +8,7 @@ const PlacesNearYou = props => {
  
   return (
     <div>
+      <h1>Restaurants near you based on your current location</h1>
       <CardContainer
         cards = {props.cards}
         handleAddFav= {props.handleAddFav}

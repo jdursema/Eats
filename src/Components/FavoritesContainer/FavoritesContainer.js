@@ -3,29 +3,24 @@ import { connect } from 'react-redux';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
+import CardContainer from '../CardContainer/CardContainer';
 
 
 const FavoritesContainer = props => {
-  const mappedFavorites = props.favorites.map((card)=>{
-    if (card) {      
-
-      return <Card 
-        info= {card}
-        handleAddFav = {props.handleAddFav}
-        user = {props.user}
-        history = {props.history}
-        favorited = {true}
-        handleDeleteFav = {props.handleDeleteFav}
-        favorites = {props.favorites}
-      />;
-    }
-  });
-  
   return (
     <div>
-      {mappedFavorites}
+      <h1>Your favorite restaurants</h1>
+      <CardContainer
+        cards = {props.favorites}
+        handleAddFav= {props.handleAddFav}
+        handleDeleteFav = {props.handleDeleteFav}
+        user = {props.user}
+        history = {props.history} 
+        favorites = {props.favorites}
+      />
     </div>
   );
+  
 };
 
 const mapDispatchToProps = dispatch => ({
