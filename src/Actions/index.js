@@ -12,11 +12,11 @@ export const getLocation = (location) => async dispatch => {
 
   const fetchResponse = await fetchLocation.json()
   const locationData = fetchResponse.results[0]
-  console.log(locationData)
   const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
-  )
-  dispatch(setLocation(cleanData))
-}
+  );
+  dispatch(setLocation(cleanData));
+  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng))
+};
 
 export const setLocation = (location) => ({
   type: 'SET_LOCATION',
@@ -50,6 +50,7 @@ export const addUser = (email, username, password) => async (dispatch) => {
 export const fetchRestaurants = (lat, lng) => async (dispatch) => {
   try {
     const fetchedData = await fetchRestaurantData(lat, lng);
+    console.log(fetchedData);
     dispatch(createCards(fetchedData));
 
   } catch (error){

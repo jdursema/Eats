@@ -15,7 +15,6 @@ export const fetchCuisineIds = async(lat, lng) => {
 
   });
   const fetchResponse = await fetchData.json();
-    // console.log(fetchResponse)
   return fetchResponse.cuisines
 }
 
