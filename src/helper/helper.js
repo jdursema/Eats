@@ -19,8 +19,9 @@ export const fetchCuisineIds = async(lat, lng) => {
 }
 
 export const fetchRestaurantData = async(lat, lng) => {
-  const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/search?lat=${lat}lon=${lng}
-  `, {
+  console.log(lat)
+  console.log(lng)
+  const fetchData = await fetch(`https://developers.zomato.com/api/v2.1/search?lat=${lat}&lon=${lng}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

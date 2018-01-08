@@ -57,10 +57,18 @@ export const addCusineIdsToStore = (CuisinesArray) => ({
 });
 
 
+export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
+  const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
+  dispatch(addRecommendationsToStore(recommendationsArray))
+};
 
 
+export const addRecommendationsToStore = (recommendationsArray) => ({
+  type: 'ADD_RECOMMENDATIONS',
+  recommendationsArray
+});
 
-export const getLocation = (location) => async dispatch => {
+export const getLocation = (location, favsArray, cuisineArray) => async dispatch => {
   console.log(location)
   const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`)
 
@@ -68,9 +76,27 @@ export const getLocation = (location) => async dispatch => {
   const locationData = fetchResponse.results[0]
   const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
   );
+
+  console.log(cleanData.lat)
+
   dispatch(addLocationToStore(cleanData));
   dispatch(fetchRestaurants(cleanData.lat, cleanData.lng))
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -151,21 +177,5 @@ export const removeFavoriteFromStore = (cardData)=> ({
   cardData
 });
 
-
-
-
-
-
-
-export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
-  const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
-  console.log(recommendationsArray)
-  dispatch(addRecommendationsToStore(recommendationsArray))
-};
-
-export const addRecommendationsToStore = (recommendationsArray) => ({
-  type: 'ADD_RECOMMENDATIONS',
-  recommendationsArray
-});
 
 

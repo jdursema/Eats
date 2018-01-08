@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { fetchRecommendations } from '../../Actions';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import CardContainer from '../CardContainer/CardContainer'
-import { postAddFavorite, postDeleteFavorite } from '../../Actions';
+import { postAddFavorite, postDeleteFavorite, fetchRecommendations } from '../../Actions';
 
 class Recommendations extends Component {
 
