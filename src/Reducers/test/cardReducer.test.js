@@ -7,6 +7,7 @@ describe('cardReducer', () => {
 
     expect(cardReducer(undefined, {})).toEqual(expected);
   });
+  
   it('should return a new state with the restaurant data added', () => {
     const restarantArray = [
       {name: 'Duck Fat'},
@@ -14,7 +15,7 @@ describe('cardReducer', () => {
       {name: 'Grace'}];
 
     const expected = [...restarantArray];
-    const action = actions.createCards(restarantArray);
+    const action = actions.addCardsToStore(restarantArray);
 
     expect(cardReducer(undefined, action)).toEqual(expected);
   });
@@ -32,7 +33,7 @@ describe('cardReducer', () => {
 
     const expected = [...restarantArray2];
 
-    const action = actions.createCards(restarantArray2);
+    const action = actions.addCardsToStore(restarantArray2);
 
     expect(cardReducer(restarantArray1, action)).toEqual(expected);
   });

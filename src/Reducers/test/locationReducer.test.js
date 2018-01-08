@@ -3,15 +3,15 @@ import locationReducer from '../location-reducer';
 
 describe('locationReducer', () => {
   it('should return the default state', () => {
-    const expected = '';
+    const expected = {};
 
     expect(locationReducer(undefined, {})).toEqual(expected);
   });
 
   it('should reutnr a new state with the new location', () => {
-    const location = 'Portland, ME';
+    const location = {name: 'Portland, ME', lat: 43, lng: 70};
     const expected = location;
-    const action = actions.setLocation(location);
+    const action = actions.addLocationToStore(location);
 
     expect(locationReducer(undefined, action)).toEqual(expected);
   });

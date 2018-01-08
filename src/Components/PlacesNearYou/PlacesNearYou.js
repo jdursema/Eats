@@ -2,6 +2,7 @@ import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 const PlacesNearYou = props => {
@@ -37,3 +38,13 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlacesNearYou);
+
+
+PlacesNearYou.propTypes = {
+  cards: PropTypes.array,
+  favorites: PropTypes.array,
+  handleAddFav: PropTypes.func,
+  handleDeleteFav: PropTypes.func,
+  user: PropTypes.object,
+  history: PropTypes.array
+};

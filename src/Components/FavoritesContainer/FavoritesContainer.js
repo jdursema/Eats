@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { postAddFavorite, postDeleteFavorite } from '../../Actions';
-import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 import CardContainer from '../CardContainer/CardContainer';
 
@@ -39,5 +38,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(FavoritesContainer);
 
 FavoritesContainer.propTypes = {
   cards: PropTypes.array,
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  handleAddFav: PropTypes.func,
+  handleDeleteFav: PropTypes.func,
+  user: PropTypes.object,
+  history: PropTypes.array
 };

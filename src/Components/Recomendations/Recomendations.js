@@ -1,13 +1,14 @@
+/*eslint-disable max-len*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card/Card';
-import CardContainer from '../CardContainer/CardContainer'
+import CardContainer from '../CardContainer/CardContainer';
 import { postAddFavorite, postDeleteFavorite, fetchRecommendations } from '../../Actions';
+import PropTypes from 'prop-types';
 
 class Recommendations extends Component {
 
   async componentDidMount(){
-    this.props.handleRecommendations(this.props.favorites, this.props.location, this.props.cuisine)
+    this.props.handleRecommendations(this.props.favorites, this.props.location, this.props.cuisine);
   }
   render(){
     return (
@@ -43,4 +44,16 @@ const mapDipatchToProps = dispatch => ({
     dispatch(postDeleteFavorite(cardData, user))
 });
 
-export default connect (mapStateToProps, mapDipatchToProps)(Recommendations)
+export default connect(mapStateToProps, mapDipatchToProps)(Recommendations);
+
+Recommendations.propTypes = {
+  recommendations: PropTypes.array,
+  favorites: PropTypes.array,
+  handleAddFav: PropTypes.func,
+  handleDeleteFav: PropTypes.func,
+  user: PropTypes.object,
+  history: PropTypes.array,
+  handleRecommendations: PropTypes.func,
+  cuisine: PropTypes.array,
+  location: PropTypes.object
+};

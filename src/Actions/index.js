@@ -1,6 +1,8 @@
 /*eslint-disable max-len*/
 /*eslint-disable no-unused-vars*/
 /*eslint-disable id-blacklist*/
+/*eslint-disable no-console*/
+
 import { auth, db } from '../firebase';
 import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
@@ -13,11 +15,10 @@ export const fetchLocation = () => async (dispatch) => {
     }
   });
   const fetchResponse = await fetchLocation.json();
-  console.log(fetchResponse.location)
 
   dispatch(addLocationToStore(fetchResponse.location));
   dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
-  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng))
+  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng));
 };
 
 export const addLocationToStore = (locationObj) => ({
@@ -44,8 +45,6 @@ export const fetchCuisines = (lat, lng) => async (dispatch) => {
   try {
     const fetchedData = await fetchCuisineIds(lat, lng);
     dispatch(addCusineIdsToStore(fetchedData));
-
-    console.log(fetchedData)
   } catch (error){
     console.log(error);
   }
@@ -59,7 +58,7 @@ export const addCusineIdsToStore = (CuisinesArray) => ({
 
 export const fetchRecommendations = (favsArray, locationObj, cuisineIdArray) => async (dispatch) => {
   const recommendationsArray = await getCuisineRecommendations(favsArray, locationObj, cuisineIdArray);
-  dispatch(addRecommendationsToStore(recommendationsArray))
+  dispatch(addRecommendationsToStore(recommendationsArray));
 };
 
 
@@ -69,35 +68,16 @@ export const addRecommendationsToStore = (recommendationsArray) => ({
 });
 
 export const getLocation = (location, favsArray, cuisineArray) => async dispatch => {
-  console.log(location)
-  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`)
+  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`);
 
-  const fetchResponse = await fetchLocation.json()
-  const locationData = fetchResponse.results[0]
+  const fetchResponse = await fetchLocation.json();
+  const locationData = fetchResponse.results[0];
   const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
   );
 
-  console.log(cleanData.lat)
-
   dispatch(addLocationToStore(cleanData));
-  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng))
+  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng));
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export const checkUser = (email, password) => async (dispatch) => {
@@ -143,7 +123,6 @@ export const postAddFavorite = (cardData, user) => async (dispatch) => {
 };
 
 export const retrieveFavorites = (user) => async (dispatch) => {
-  // const favoritesFetch = auth[user.uid];
   const favorites = await db.ref('/users/' + user.uid )
     .once('value').then(function(snapshot) {
       return snapshot.val() || [];
@@ -176,6 +155,3 @@ export const removeFavoriteFromStore = (cardData)=> ({
   type: 'REMOVE_FAVORITE',
   cardData
 });
-
-
-
