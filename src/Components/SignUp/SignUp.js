@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addUser } from '../../Actions';
 import PropTypes from 'prop-types';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor() {
     super();
     this.state = {

@@ -40,7 +40,7 @@ describe('cuisineReducer', () => {
 
     const action = actions.addCusineIdsToStore(cuisineArray);
 
-    expect(cuisineReducer(state, action)).toEqual(expected)
+    expect(cuisineReducer(state, action)).toEqual(expected);
   });
 
 });
