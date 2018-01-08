@@ -1,6 +1,7 @@
 /*eslint-disable max-len*/
 /*eslint-disable no-unused-vars*/
 /*eslint-disable id-blacklist*/
+
 import { auth, db } from '../firebase';
 import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
