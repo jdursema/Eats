@@ -4,8 +4,9 @@
 /*eslint-disable no-console*/
 
 import { auth, db } from '../firebase';
-import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
-import { getCuisineRecommendations } from '../helper/helper2';
+import { fetchRestaurantData } from '../helper/restaurantHelper';
+import { fetchCuisineIds } from '../helper/cuisineHelper';
+import { getCuisineRecommendations } from '../helper/recommendationsHelper';
 import { async } from '@firebase/util';
 import { geolocationFetch } from '../helper/locationHelper';
 import { searchLocationFetch } from '../helper/locationHelper2';
