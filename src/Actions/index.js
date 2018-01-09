@@ -7,14 +7,10 @@ import { auth, db } from '../firebase';
 import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
 import { async } from '@firebase/util';
+import { geolocationFetch } from '../helper/locationHelper';
 
-export const fetchLocation = () => async (dispatch) => {
-  const fetchLocation = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDC7CylU8MdPkC3iKrzBb63HkNS2uJQJGM`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json' 
-    }
-  });
-  const fetchResponse = await fetchLocation.json();
+export const initialLocationFetch = () => async (dispatch) => {
+  const fetchResponse = await geolocationFetch();
 
   dispatch(addLocationToStore(fetchResponse.location));
   dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
