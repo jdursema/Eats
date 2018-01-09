@@ -1,7 +1,7 @@
 /*eslint-disable max-len*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getLocation } from '../../Actions';
+import { getLocationOnSearch } from '../../Actions';
 import PropTypes from 'prop-types';
 import './LocationForm.css';
 
@@ -42,7 +42,7 @@ class LocationForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleLocation: (location, favsArray, cuisineArray) => dispatch(getLocation(location, favsArray, cuisineArray))
+  handleLocation: (location, favsArray, cuisineArray) => dispatch(getLocationOnSearch(location, favsArray, cuisineArray))
 });
 
 const mapStateToProps = state => ({

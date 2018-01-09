@@ -8,6 +8,7 @@ import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
 import { getCuisineRecommendations } from '../helper/helper2';
 import { async } from '@firebase/util';
 import { geolocationFetch } from '../helper/locationHelper';
+import { searchLocationFetch } from '../helper/locationHelper2';
 
 export const initialLocationFetch = () => async (dispatch) => {
   const fetchResponse = await geolocationFetch();
@@ -63,16 +64,11 @@ export const addRecommendationsToStore = (recommendationsArray) => ({
   recommendationsArray
 });
 
-export const getLocation = (location, favsArray, cuisineArray) => async dispatch => {
-  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`);
+export const getLocationOnSearch = (location, favsArray, cuisineArray) => async dispatch => {
+  const fetchLocation = await searchLocationFetch(location);
 
-  const fetchResponse = await fetchLocation.json();
-  const locationData = fetchResponse.results[0];
-  const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
-  );
-
-  dispatch(addLocationToStore(cleanData));
-  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng));
+  dispatch(addLocationToStore(fetchLocation));
+  dispatch(fetchRestaurants(fetchLocation.lat, fetchLocation.lng));
 };
 
 
