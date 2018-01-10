@@ -17,4 +17,16 @@ describe('userReducer', () => {
 
     expect(userReducer(undefined, action)).toEqual(expected);
   });
+
+  it('should remove the user from state when they log out', () => {
+    const state = {
+      email: 'jmdursema@gmail.com',
+      password: 'password'};
+
+    const expected = {}
+
+    const action = actions.logOut();
+
+    expect(userReducer(state, action)).toEqual(expected);
+  });
 });

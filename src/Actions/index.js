@@ -102,7 +102,7 @@ export const addUser = (email, username, password) => async (dispatch) => {
 export const createErrorMessage = (message) => ({
   type: 'ADD_ERROR',
   message
-})
+});
 
 export const clearError = () => ({
   type: 'CLEAR_ERROR'
