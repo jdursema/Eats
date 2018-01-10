@@ -66,7 +66,7 @@ Card.propTypes = {
   info: PropTypes.object,
   handleAddFav: PropTypes.func,
   user: PropTypes.object,
-  history: PropTypes.object,
+  history: PropTypes.array,
   favorited: PropTypes.bool,
   handleDeleteFav: PropTypes.func,
   favorites: PropTypes.array

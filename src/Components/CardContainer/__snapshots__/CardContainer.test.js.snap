@@ -1,0 +1,428 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CardContainer
+    cards={
+        Array [
+            Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Scales",
+            },
+            Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Grace",
+            },
+            Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Miyakame",
+            },
+          ]
+    }
+    favorites={
+        Array [
+            Object {
+              "name": "Duck Fat",
+            },
+          ]
+    }
+    handleAddFav={[Function]}
+    handleDeleteFav={[Function]}
+    history={Array []}
+    user={
+        Object {
+            "name": "Julie",
+            "uid": "3jriero384u2",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Card
+          favorited={false}
+          favorites={
+                    Array [
+                              Object {
+                                "name": "Duck Fat",
+                              },
+                            ]
+          }
+          handleAddFav={[Function]}
+          handleDeleteFav={[Function]}
+          history={Array []}
+          info={
+                    Object {
+                              "data": Object {
+                                "location": "Portland, ME",
+                              },
+                              "name": "Scales",
+                            }
+          }
+          user={
+                    Object {
+                              "name": "Julie",
+                              "uid": "3jriero384u2",
+                            }
+          }
+/>,
+        <Card
+          favorited={false}
+          favorites={
+                    Array [
+                              Object {
+                                "name": "Duck Fat",
+                              },
+                            ]
+          }
+          handleAddFav={[Function]}
+          handleDeleteFav={[Function]}
+          history={Array []}
+          info={
+                    Object {
+                              "data": Object {
+                                "location": "Portland, ME",
+                              },
+                              "name": "Grace",
+                            }
+          }
+          user={
+                    Object {
+                              "name": "Julie",
+                              "uid": "3jriero384u2",
+                            }
+          }
+/>,
+        <Card
+          favorited={false}
+          favorites={
+                    Array [
+                              Object {
+                                "name": "Duck Fat",
+                              },
+                            ]
+          }
+          handleAddFav={[Function]}
+          handleDeleteFav={[Function]}
+          history={Array []}
+          info={
+                    Object {
+                              "data": Object {
+                                "location": "Portland, ME",
+                              },
+                              "name": "Miyakame",
+                            }
+          }
+          user={
+                    Object {
+                              "name": "Julie",
+                              "uid": "3jriero384u2",
+                            }
+          }
+/>,
+      ],
+      "className": "card-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "favorited": false,
+          "favorites": Array [
+            Object {
+              "name": "Duck Fat",
+            },
+          ],
+          "handleAddFav": [Function],
+          "handleDeleteFav": [Function],
+          "history": Array [],
+          "info": Object {
+            "data": Object {
+              "location": "Portland, ME",
+            },
+            "name": "Scales",
+          },
+          "user": Object {
+            "name": "Julie",
+            "uid": "3jriero384u2",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "favorited": false,
+          "favorites": Array [
+            Object {
+              "name": "Duck Fat",
+            },
+          ],
+          "handleAddFav": [Function],
+          "handleDeleteFav": [Function],
+          "history": Array [],
+          "info": Object {
+            "data": Object {
+              "location": "Portland, ME",
+            },
+            "name": "Grace",
+          },
+          "user": Object {
+            "name": "Julie",
+            "uid": "3jriero384u2",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "function",
+        "props": Object {
+          "favorited": false,
+          "favorites": Array [
+            Object {
+              "name": "Duck Fat",
+            },
+          ],
+          "handleAddFav": [Function],
+          "handleDeleteFav": [Function],
+          "history": Array [],
+          "info": Object {
+            "data": Object {
+              "location": "Portland, ME",
+            },
+            "name": "Miyakame",
+          },
+          "user": Object {
+            "name": "Julie",
+            "uid": "3jriero384u2",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Card
+            favorited={false}
+            favorites={
+                        Array [
+                                    Object {
+                                      "name": "Duck Fat",
+                                    },
+                                  ]
+            }
+            handleAddFav={[Function]}
+            handleDeleteFav={[Function]}
+            history={Array []}
+            info={
+                        Object {
+                                    "data": Object {
+                                      "location": "Portland, ME",
+                                    },
+                                    "name": "Scales",
+                                  }
+            }
+            user={
+                        Object {
+                                    "name": "Julie",
+                                    "uid": "3jriero384u2",
+                                  }
+            }
+/>,
+          <Card
+            favorited={false}
+            favorites={
+                        Array [
+                                    Object {
+                                      "name": "Duck Fat",
+                                    },
+                                  ]
+            }
+            handleAddFav={[Function]}
+            handleDeleteFav={[Function]}
+            history={Array []}
+            info={
+                        Object {
+                                    "data": Object {
+                                      "location": "Portland, ME",
+                                    },
+                                    "name": "Grace",
+                                  }
+            }
+            user={
+                        Object {
+                                    "name": "Julie",
+                                    "uid": "3jriero384u2",
+                                  }
+            }
+/>,
+          <Card
+            favorited={false}
+            favorites={
+                        Array [
+                                    Object {
+                                      "name": "Duck Fat",
+                                    },
+                                  ]
+            }
+            handleAddFav={[Function]}
+            handleDeleteFav={[Function]}
+            history={Array []}
+            info={
+                        Object {
+                                    "data": Object {
+                                      "location": "Portland, ME",
+                                    },
+                                    "name": "Miyakame",
+                                  }
+            }
+            user={
+                        Object {
+                                    "name": "Julie",
+                                    "uid": "3jriero384u2",
+                                  }
+            }
+/>,
+        ],
+        "className": "card-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "favorited": false,
+            "favorites": Array [
+              Object {
+                "name": "Duck Fat",
+              },
+            ],
+            "handleAddFav": [Function],
+            "handleDeleteFav": [Function],
+            "history": Array [],
+            "info": Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Scales",
+            },
+            "user": Object {
+              "name": "Julie",
+              "uid": "3jriero384u2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "favorited": false,
+            "favorites": Array [
+              Object {
+                "name": "Duck Fat",
+              },
+            ],
+            "handleAddFav": [Function],
+            "handleDeleteFav": [Function],
+            "history": Array [],
+            "info": Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Grace",
+            },
+            "user": Object {
+              "name": "Julie",
+              "uid": "3jriero384u2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "function",
+          "props": Object {
+            "favorited": false,
+            "favorites": Array [
+              Object {
+                "name": "Duck Fat",
+              },
+            ],
+            "handleAddFav": [Function],
+            "handleDeleteFav": [Function],
+            "history": Array [],
+            "info": Object {
+              "data": Object {
+                "location": "Portland, ME",
+              },
+              "name": "Miyakame",
+            },
+            "user": Object {
+              "name": "Julie",
+              "uid": "3jriero384u2",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 
 const CardContainer = props => {
-  const mappedCards = props.cards.map((card)=>{
+  const mappedCards = props.cards.map((card, index)=>{
     if (card) {
       const favRestaurant = props.favorites.find(favRestaurant => 
         favRestaurant.name === card.name);
@@ -16,6 +16,7 @@ const CardContainer = props => {
       
       if (props.cards[0]){
         return <Card 
+          key={index}
           info= {card}
           handleAddFav = {props.handleAddFav}
           handleDeleteFav = {props.handleDeleteFav}
