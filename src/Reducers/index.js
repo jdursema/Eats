@@ -5,6 +5,7 @@ import favoritesReducer from './favorites-reducer';
 import { combineReducers } from 'redux';
 import cuisineReducer from './cuisine-reducer';
 import recommendationsReducer from './recommendations-reducer';
+import errorReducer from './error-reducer';
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   cards: cardReducer,
   favorites: favoritesReducer,
   cuisine: cuisineReducer,
-  recommendations: recommendationsReducer
+  recommendations: recommendationsReducer,
+  error: errorReducer
 });
 
 export default rootReducer;

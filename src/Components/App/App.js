@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
-import NavBar from '../NavBar/NavBar';
-import FavoritesContainer from '../FavoritesContainer/FavoritesContainer';
-import Recommendations from '../Recomendations/Recomendations';
-import LocationForm from '../LocationForm/LocationForm';
+import NavBar from '../../Containers/NavBar/NavBar';
+import FavoritesContainer from '../../Containers/FavoritesContainer/FavoritesContainer';
+import Recommendations from '../../Containers/Recomendations/Recomendations';
+import LocationForm from '../../Containers/LocationForm/LocationForm';
 import { Route } from 'react-router-dom';
-import Home from '../Home/Home';
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
-import PlacesNearYou from '../PlacesNearYou/PlacesNearYou';
+import Home from '../../Containers/Home/Home';
+import Login from '../../Containers/Login/Login';
+import SignUp from '../../Containers/SignUp/SignUp';
+import PlacesNearYou from '../../Containers/PlacesNearYou/PlacesNearYou';
 
 const App = () => {
   return (

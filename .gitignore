@@ -22,3 +22,5 @@ yarn-error.log*
 
 .# api
 .apiKey.js
+.googleapikey.js
+.googlemapsapikey.js

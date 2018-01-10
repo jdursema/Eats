@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './NavBar.css';
-import { fetchLocation } from '../../Actions';
+import { initialLocationFetch } from '../../Actions';
 import PropTypes from 'prop-types';
 
 class NavBar extends Component {
@@ -52,7 +52,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleLocation: () =>
-    dispatch(fetchLocation())
+    dispatch(initialLocationFetch())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

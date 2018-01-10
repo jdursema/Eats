@@ -1,8 +1,8 @@
-.places-near-you {
+.favorites {
   display: flex;
   flex-direction: column; }
-  .places-near-you h1 {
+  .favorites h1 {
     color: #0F2130;
     font-family: 'Raleway', sans-serif;
     align-content: center;
-    padding: 2%; }
+    margin: 2%; }

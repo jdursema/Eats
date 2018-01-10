@@ -1,7 +1,7 @@
 /*eslint-disable max-len*/
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CardContainer from '../CardContainer/CardContainer';
+import CardContainer from '../../Components/CardContainer/CardContainer';
 import { postAddFavorite, postDeleteFavorite, fetchRecommendations } from '../../Actions';
 import PropTypes from 'prop-types';
 import './Recommendations.css'

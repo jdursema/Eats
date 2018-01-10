@@ -1,18 +1,17 @@
 import React from 'react';
-import CardContainer from '../CardContainer/CardContainer';
-import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import { connect } from 'react-redux';
+import { postAddFavorite, postDeleteFavorite } from '../../Actions';
 import PropTypes from 'prop-types';
-import './PlacesNearYou.css'
+import CardContainer from '../../Components/CardContainer/CardContainer';
+import './FavoritesContainer.css';
 
 
-const PlacesNearYou = props => {
- 
+const FavoritesContainer = props => {
   return (
-    <div className='places-near-you'>
-      <h1>Find a restuarant right around the corner...</h1>
+    <div className='favorites'>
+      <h1>Places you already love...</h1>
       <CardContainer
-        cards = {props.cards}
+        cards = {props.favorites}
         handleAddFav= {props.handleAddFav}
         handleDeleteFav = {props.handleDeleteFav}
         user = {props.user}
@@ -21,27 +20,24 @@ const PlacesNearYou = props => {
       />
     </div>
   );
+  
 };
-
-
 
 const mapDispatchToProps = dispatch => ({
   handleAddFav: (cardData, user) => 
     dispatch(postAddFavorite(cardData, user)),
-  handleDeleteFav: (cardData, user) => 
+  handleDeleteFav: (cardData, user) =>
     dispatch(postDeleteFavorite(cardData, user))
 });
 
 const mapStateToProps = state => ({
-  cards: state.cards,
-  user: state.user,
-  favorites: state.favorites
+  favorites: state.favorites,
+  user: state.user
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlacesNearYou);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesContainer);
 
-
-PlacesNearYou.propTypes = {
+FavoritesContainer.propTypes = {
   cards: PropTypes.array,
   favorites: PropTypes.array,
   handleAddFav: PropTypes.func,

@@ -4,17 +4,15 @@
 /*eslint-disable no-console*/
 
 import { auth, db } from '../firebase';
-import { fetchRestaurantData, fetchCuisineIds } from '../helper/helper';
-import { getCuisineRecommendations } from '../helper/helper2';
+import { fetchRestaurantData } from '../helper/restaurantHelper';
+import { fetchCuisineIds } from '../helper/cuisineHelper';
+import { getCuisineRecommendations } from '../helper/recommendationsHelper';
 import { async } from '@firebase/util';
+import { geolocationFetch } from '../helper/locationHelper';
+import { searchLocationFetch } from '../helper/locationHelper2';
 
-export const fetchLocation = () => async (dispatch) => {
-  const fetchLocation = await fetch(`https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDC7CylU8MdPkC3iKrzBb63HkNS2uJQJGM`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json' 
-    }
-  });
-  const fetchResponse = await fetchLocation.json();
+export const initialLocationFetch = () => async (dispatch) => {
+  const fetchResponse = await geolocationFetch();
 
   dispatch(addLocationToStore(fetchResponse.location));
   dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
@@ -25,7 +23,6 @@ export const addLocationToStore = (locationObj) => ({
   type: 'ADD_LOCATION',
   locationObj
 });
-
 
 export const fetchRestaurants = (lat, lng) => async (dispatch) => {
   try {
@@ -67,25 +64,22 @@ export const addRecommendationsToStore = (recommendationsArray) => ({
   recommendationsArray
 });
 
-export const getLocation = (location, favsArray, cuisineArray) => async dispatch => {
-  const fetchLocation = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyBkrloNv5wMHVMAVChSLu2raGAwY8dKG6U`);
+export const getLocationOnSearch = (location, favsArray, cuisineArray) => async dispatch => {
+  const fetchLocation = await searchLocationFetch(location);
 
-  const fetchResponse = await fetchLocation.json();
-  const locationData = fetchResponse.results[0];
-  const cleanData = await Object.assign({}, {name: locationData.formatted_address}, locationData.geometry.location
-  );
-
-  dispatch(addLocationToStore(cleanData));
-  dispatch(fetchRestaurants(cleanData.lat, cleanData.lng));
+  dispatch(addLocationToStore(fetchLocation));
+  dispatch(fetchRestaurants(fetchLocation.lat, fetchLocation.lng));
 };
 
 
-export const checkUser = (email, password) => async (dispatch) => {
+export const checkUser = (email, password) => (dispatch) => {
   auth.signInWithEmailAndPassword(email, password).then((user)=>{
     dispatch(signIn(user));
-    dispatch(retrieveFavorites(user));
+    dispatch(retrieveFavorites(user)
+    );
+    dispatch(clearError());
   }).catch((error) => {
-    console.log(error);
+    dispatch(createErrorMessage(error.message));
   });
 };
 
@@ -98,11 +92,22 @@ export const addUser = (email, username, password) => async (dispatch) => {
   auth.createUserWithEmailAndPassword(email, password)
     .then((user) => {
       dispatch(signIn(user));
+      dispatch(clearError())
     })
     .catch((error) => {
-      console.log(error);
+      dispatch(createErrorMessage(error.message));
     });
 };
+
+export const createErrorMessage = (message) => ({
+  type: 'ADD_ERROR',
+  message
+})
+
+export const clearError = () => ({
+  type: 'CLEAR_ERROR'
+});
+
 
 
 

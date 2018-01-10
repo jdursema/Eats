@@ -54,21 +54,27 @@ export class SignUp extends Component {
               this.state.username,
               this.state.password);
           }}>
-            Create Users
+            Register
         </button>
+        <p>{this.props.error}</p>
       </form>
 
     );
   }
 }
 
+const mapStateToProps = state => ({
+  error: state.error
+});
+
 const mapDispatchToProps = dispatch => ({
   handleSignUp: (email, username, password) => 
     dispatch(addUser(email, username, password))
 });
 
-export default  connect(null, mapDispatchToProps)(SignUp);
+export default  connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 SignUp.propTypes = {
-  handleSignUp: PropTypes.func
+  handleSignUp: PropTypes.func,
+  error: PropTypes.string
 };
