@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../../Actions';
 import PropTypes from 'prop-types';
-
+import './SignUp.css';
 export class SignUp extends Component {
   constructor() {
     super();
@@ -20,7 +20,7 @@ export class SignUp extends Component {
 
   render() {
     return (
-      <form>
+      <form className = 'signup-form'>
         <label htmlFor='email-input'>
           Email: 
         </label>
@@ -53,10 +53,13 @@ export class SignUp extends Component {
             this.props.handleSignUp(this.state.email,
               this.state.username,
               this.state.password);
+            if(this.props.user.email){
+              this.props.history.push('/suggestions');
+            }
           }}>
             Register
         </button>
-        <p>{this.props.error}</p>
+        <p className='error'>{this.props.error}</p>
       </form>
 
     );
@@ -64,7 +67,8 @@ export class SignUp extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.error
+  error: state.error,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

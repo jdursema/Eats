@@ -24,8 +24,22 @@
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
   }
+  button{
+    background-color: #0F2130;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px; 
+    color: white;
+    width: 50%;
+    margin: 1% auto;
+
+
+  }
 }
 
 .favorite{
   border: gold 2px solid;
+
+  button{
+    background-color: gold;
+  }
 }
