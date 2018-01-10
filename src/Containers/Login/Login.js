@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { checkUser } from '../../Actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './Login.css';
 
 
 export class Login extends Component {
@@ -20,7 +21,7 @@ export class Login extends Component {
 
   render() {
     return (
-      <form>
+      <form className = 'login-form' >
         <label htmlFor='email-input'>
           Email: 
         </label>
@@ -39,11 +40,15 @@ export class Login extends Component {
           name='password' 
           value={this.state.password}/>
         <button onClick={ (event)=>{
+          event.preventDefault();
           this.props.handleLogin(this.state.email, this.state.password);
+          if (this.props.user.email){
+            this.props.history.push('/suggestions'); 
+}
         }}>
             Login
         </button>
-        <p>{this.props.error}</p>
+        <p className='error'>{this.props.error}</p>
       </form>
 
     );
@@ -51,7 +56,8 @@ export class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  error: state.error
+  error: state.error,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

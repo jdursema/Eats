@@ -22,3 +22,17 @@ header {
       padding: 1%;
       font-family: 'Raleway', sans-serif;
       font-size: 20px; }
+
+.log-out {
+  border: white 2px solid;
+  padding: 1%;
+  width: 100px;
+  color: white;
+  text-decoration: none;
+  margin: 3%;
+  background-color: #0F2130;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px; }
+  .log-out:hover {
+    background-color: white;
+    color: #0F2130; }

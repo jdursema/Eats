@@ -21,7 +21,9 @@ export class NavBar extends Component {
           </div>
           <h1>Eats</h1>
           <div className='right-nav'>
-            <button onClick={this.props.handleLogOut}>
+            <button 
+              className='log-out'
+              onClick={this.props.handleLogOut}>
               LogOut
             </button>
           </div>

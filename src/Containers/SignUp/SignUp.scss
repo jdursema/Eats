@@ -1,4 +1,4 @@
-.location-form {
+.signup-form {
   margin: 2% auto;
   display: flex;
   flex-direction: column;
@@ -10,17 +10,26 @@
   align-self: center;
   font-family: 'Raleway', sans-serif;
   color: #0F2130; }
-  .location-form h3 {
+  .signup-form label {
     border-bottom: lightgrey solid 1px;
     padding: 2%; }
-  .location-form .location-input {
+  .signup-form .password-input {
     height: 18px;
     width: 200px; }
-  .location-form .submit-location {
+  .signup-form .email-input {
+    height: 18px;
+    width: 200px; }
+  .signup-form .username-input {
+    height: 18px;
+    width: 200px; }
+  .signup-form button {
     background-color: #0F2130;
     color: white;
     border: solid 1px #0F2130;
-    font-size: 16px; }
+    font-size: 16px; 
+    margin: 2%;
+  }
 
-.error {
-  color: red; }
+  .error{
+    color: red;
+  }

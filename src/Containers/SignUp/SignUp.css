@@ -1,0 +1,38 @@
+.signup-form {
+  margin: 2% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black 3px;
+  width: 40%;
+  padding: 5%;
+  align-content: center;
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  color: #0F2130; }
+
+.signup-form label {
+  border-bottom: lightgrey solid 1px;
+  padding: 2%; }
+
+.signup-form .password-input {
+  height: 18px;
+  width: 200px; }
+
+.signup-form .email-input {
+  height: 18px;
+  width: 200px; }
+
+.signup-form .username-input {
+  height: 18px;
+  width: 200px; }
+
+.signup-form button {
+  background-color: #0F2130;
+  color: white;
+  border: solid 1px #0F2130;
+  font-size: 16px;
+  margin: 2%; }
+
+.error {
+  color: red; }

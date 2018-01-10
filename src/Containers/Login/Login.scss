@@ -1,4 +1,4 @@
-.location-form {
+.login-form {
   margin: 2% auto;
   display: flex;
   flex-direction: column;
@@ -10,17 +10,19 @@
   align-self: center;
   font-family: 'Raleway', sans-serif;
   color: #0F2130; }
-  .location-form h3 {
+  .login-form label {
     border-bottom: lightgrey solid 1px;
     padding: 2%; }
-  .location-form .location-input {
+  .login-form .password-input {
     height: 18px;
     width: 200px; }
-  .location-form .submit-location {
+  .login-form .email-input {
+    height: 18px;
+    width: 200px; }
+  .login-form button {
     background-color: #0F2130;
     color: white;
     border: solid 1px #0F2130;
-    font-size: 16px; }
-
-.error {
-  color: red; }
+    font-size: 16px; 
+    margin: 2%;
+  }
