@@ -44,20 +44,26 @@ class Login extends Component {
         }}>
             Login
         </button>
+        <p>{this.props.error}</p>
       </form>
 
     );
   }
 }
 
+const mapStateToProps = state => ({
+  error: state.error
+});
+
 const mapDispatchToProps = dispatch => ({
   handleLogin: (email, password) => dispatch(checkUser(email, password))
 });
     
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
 
 Login.propTypes = {
-  handleLogin: PropTypes.func
+  handleLogin: PropTypes.func,
+  error: PropTypes.string
 };

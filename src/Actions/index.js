@@ -24,7 +24,6 @@ export const addLocationToStore = (locationObj) => ({
   locationObj
 });
 
-
 export const fetchRestaurants = (lat, lng) => async (dispatch) => {
   try {
     const fetchedData = await fetchRestaurantData(lat, lng);
@@ -73,12 +72,14 @@ export const getLocationOnSearch = (location, favsArray, cuisineArray) => async 
 };
 
 
-export const checkUser = (email, password) => async (dispatch) => {
+export const checkUser = (email, password) => (dispatch) => {
   auth.signInWithEmailAndPassword(email, password).then((user)=>{
     dispatch(signIn(user));
-    dispatch(retrieveFavorites(user));
+    dispatch(retrieveFavorites(user)
+    );
+    dispatch(clearError());
   }).catch((error) => {
-    console.log(error);
+    dispatch(createErrorMessage(error.message));
   });
 };
 
@@ -91,11 +92,22 @@ export const addUser = (email, username, password) => async (dispatch) => {
   auth.createUserWithEmailAndPassword(email, password)
     .then((user) => {
       dispatch(signIn(user));
+      dispatch(clearError())
     })
     .catch((error) => {
-      console.log(error);
+      dispatch(createErrorMessage(error.message));
     });
 };
+
+export const createErrorMessage = (message) => ({
+  type: 'ADD_ERROR',
+  message
+})
+
+export const clearError = () => ({
+  type: 'CLEAR_ERROR'
+});
+
 
 
 

@@ -1,3 +1,8 @@
-.favorites h1 {
-  font-family: 'Raleway', sans-serif;
-  color: #0F2130; }
+.favorites {
+  display: flex;
+  flex-direction: column; }
+  .favorites h1 {
+    color: #0F2130;
+    font-family: 'Raleway', sans-serif;
+    align-content: center;
+    margin: 2%; }
