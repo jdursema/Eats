@@ -5,7 +5,7 @@ import './NavBar.css';
 import { initialLocationFetch, logOut } from '../../Actions';
 import PropTypes from 'prop-types';
 
-class NavBar extends Component {
+export class NavBar extends Component {
 
   async componentDidMount(){ 
     this.props.handleLocation();

@@ -26,7 +26,7 @@ const Card = props => {
     }
   };
   
-  if(props.favorited){
+  if (props.favorited){
     return (
       <div className = 'card favorite'>
         <p className='restaurant-name'>

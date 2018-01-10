@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-class Login extends Component {
+export class Login extends Component {
   constructor(){
     super();
     this.state ={
@@ -39,7 +39,6 @@ class Login extends Component {
           name='password' 
           value={this.state.password}/>
         <button onClick={ (event)=>{
-          event.preventDefault();
           this.props.handleLogin(this.state.email, this.state.password);
         }}>
             Login
