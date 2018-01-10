@@ -47,9 +47,9 @@ export const fetchCuisines = (lat, lng) => async (dispatch) => {
   }
 };
 
-export const addCusineIdsToStore = (CuisinesArray) => ({
+export const addCusineIdsToStore = (cuisinesArray) => ({
   type: 'ADD_CUISINES',
-  CuisinesArray
+  cuisinesArray
 });
 
 
@@ -144,7 +144,7 @@ export const retrieveFavorites = (user) => async (dispatch) => {
 
 };
 
-export const addUserFavorites = (array)=> ({
+export const addUserFavorites = (array) => ({
   type: 'ADD_USER_FAVORITES',
   array
 });
