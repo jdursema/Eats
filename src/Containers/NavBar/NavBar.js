@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './NavBar.css';
-import { initialLocationFetch } from '../../Actions';
+import { initialLocationFetch, logOut } from '../../Actions';
 import PropTypes from 'prop-types';
 
 class NavBar extends Component {
@@ -17,10 +17,13 @@ class NavBar extends Component {
         <div className='title'>
           <div className='left-nav'>
             <p>Hello! {this.props.user.email}</p>
+            <p>Your Location: {this.props.location.name}</p>
           </div>
           <h1>Eats</h1>
           <div className='right-nav'>
-            <p>Your Location: {this.props.location.name}</p>
+            <button onClick={this.props.handleLogOut}>
+              LogOut
+            </button>
           </div>
         </div>
         <div className='nav-bar'>
@@ -52,7 +55,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleLocation: () =>
-    dispatch(initialLocationFetch())
+    dispatch(initialLocationFetch()),
+  handleLogOut: () => dispatch(logOut())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
@@ -61,5 +65,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 NavBar.propTypes = {
   handleLocation: PropTypes.func,
   location: PropTypes.object,
-  user: PropTypes.object
+  user: PropTypes.object,
+  handleLogOut: PropTypes.func
 };

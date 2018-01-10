@@ -6,6 +6,8 @@ const favoritesReducer = (state=[], action) => {
     return [...action.array];
   case 'REMOVE_FAVORITE':
     return state.filter(restaurant => restaurant.name !== action.cardData.name);
+  case 'LOG_OUT':
+    return [];
   default:
     return state;
   }

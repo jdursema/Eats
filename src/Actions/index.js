@@ -14,9 +14,9 @@ import { searchLocationFetch } from '../helper/locationHelper2';
 export const initialLocationFetch = () => async (dispatch) => {
   const fetchResponse = await geolocationFetch();
 
-  dispatch(addLocationToStore(fetchResponse.location));
-  dispatch(fetchRestaurants(fetchResponse.location.lat, fetchResponse.location.lng));
-  dispatch(fetchCuisines(fetchResponse.location.lat, fetchResponse.location.lng));
+  dispatch(addLocationToStore(fetchResponse));
+  dispatch(fetchRestaurants(fetchResponse.lat, fetchResponse.lng));
+  dispatch(fetchCuisines(fetchResponse.lat, fetchResponse.lng));
 };
 
 export const addLocationToStore = (locationObj) => ({
@@ -159,4 +159,8 @@ export const postDeleteFavorite = (cardData, user) => async (dispatch) => {
 export const removeFavoriteFromStore = (cardData)=> ({
   type: 'REMOVE_FAVORITE',
   cardData
+});
+
+export const logOut = () => ({
+  type: 'LOG_OUT'
 });
