@@ -55,6 +55,19 @@ describe('favoriteReducer', () => {
       actions.removeFavoriteFromStore(restaurant);
     
     expect(favoriteReducer(state, action)).toEqual(expected);
+  });
+
+  it('should clear favorites when a user logs out', () => {
+    const state = [
+      {name: 'Duck Fat'},
+      {name: 'Scales'}, 
+      {name: 'Grace'}]; 
+
+    const expected = [];
+
+    const action = actions.logOut();
+
+    expect(favoriteReducer(state, action)).toEqual(expected);
 
   });
 

@@ -6,7 +6,7 @@ import { postAddFavorite, postDeleteFavorite, fetchRecommendations } from '../..
 import PropTypes from 'prop-types';
 import './Recommendations.css'
 
-class Recommendations extends Component {
+export class Recommendations extends Component {
 
   async componentDidMount(){
     this.props.handleRecommendations(this.props.favorites, this.props.location, this.props.cuisine);

@@ -8,7 +8,7 @@ describe('locationReducer', () => {
     expect(locationReducer(undefined, {})).toEqual(expected);
   });
 
-  it('should reutnr a new state with the new location', () => {
+  it('should return a new state with the new location', () => {
     const location = {name: 'Portland, ME', lat: 43, lng: 70};
     const expected = location;
     const action = actions.addLocationToStore(location);

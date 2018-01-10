@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignUp should match the snapshot 1`] = `
+exports[`Login should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <SignUp />,
+  Symbol(enzyme.__unrendered__): <Login />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -32,18 +32,6 @@ ShallowWrapper {
         <label
           htmlFor="password-input"
 >
-          Username:
-</label>,
-        <input
-          className="username-input"
-          name="username"
-          onChange={[Function]}
-          type="text"
-          value=""
-/>,
-        <label
-          htmlFor="password-input"
->
           Password:
 </label>,
         <input
@@ -56,7 +44,7 @@ ShallowWrapper {
         <button
           onClick={[Function]}
 >
-          Register
+          Login
 </button>,
         <p />,
       ],
@@ -94,33 +82,6 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Username:",
-          "htmlFor": "password-input",
-        },
-        "ref": null,
-        "rendered": "Username:",
-        "type": "label",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "username-input",
-          "name": "username",
-          "onChange": [Function],
-          "type": "text",
-          "value": "",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "input",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
           "children": "Password:",
           "htmlFor": "password-input",
         },
@@ -148,11 +109,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Register",
+          "children": "Login",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "Register",
+        "rendered": "Login",
         "type": "button",
       },
       Object {
@@ -190,18 +151,6 @@ ShallowWrapper {
           <label
             htmlFor="password-input"
 >
-            Username:
-</label>,
-          <input
-            className="username-input"
-            name="username"
-            onChange={[Function]}
-            type="text"
-            value=""
-/>,
-          <label
-            htmlFor="password-input"
->
             Password:
 </label>,
           <input
@@ -214,7 +163,7 @@ ShallowWrapper {
           <button
             onClick={[Function]}
 >
-            Register
+            Login
 </button>,
           <p />,
         ],
@@ -252,33 +201,6 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Username:",
-            "htmlFor": "password-input",
-          },
-          "ref": null,
-          "rendered": "Username:",
-          "type": "label",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "username-input",
-            "name": "username",
-            "onChange": [Function],
-            "type": "text",
-            "value": "",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
             "children": "Password:",
             "htmlFor": "password-input",
           },
@@ -306,11 +228,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Register",
+            "children": "Login",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "Register",
+          "rendered": "Login",
           "type": "button",
         },
         Object {

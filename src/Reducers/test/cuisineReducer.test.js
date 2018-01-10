@@ -10,18 +10,18 @@ describe('cuisineReducer', () => {
   });
 
   it('should return a new array with the array of cuisines', () => {
-    const cuisineArray = [
+    const cuisinesArray = [
       {cuisine_name: 'Chinese',
         cuisine_id: 25},
       {cuisine_name: 'American',
         cuisine_id: 1}];
 
-    const expected = cuisineArray;
+    const expected = cuisinesArray;
     
     const action = 
-      actions.addCusineIdsToStore(cuisineArray);
+      actions.addCusineIdsToStore(cuisinesArray);
 
-    expect(cuisineReducer([], action)).toEqual(expected);
+    expect(cuisineReducer(undefined, action)).toEqual(expected);
   });
 
   it('should replace the prior state when a new cuisine array is added', () => {

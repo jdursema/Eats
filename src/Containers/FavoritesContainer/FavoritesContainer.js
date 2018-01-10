@@ -6,7 +6,7 @@ import CardContainer from '../../Components/CardContainer/CardContainer';
 import './FavoritesContainer.css';
 
 
-const FavoritesContainer = props => {
+export const FavoritesContainer = props => {
   return (
     <div className='favorites'>
       <h1>Places you already love...</h1>

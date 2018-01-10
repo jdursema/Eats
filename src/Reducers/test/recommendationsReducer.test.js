@@ -42,4 +42,18 @@ describe('recommendationsReducer', () => {
     expect(recommendationsReducer(state, action)).toEqual(expected);
   });
 
+  it('should clear the recommendations when the user signs out', () => {
+    const state = [
+      {name: 'Fore Street'},
+      {name: 'The Corner Room'},
+      {name: 'Nosh'}
+    ];
+
+    const expected = [];
+
+    const action = actions.logOut();
+
+    expect(recommendationsReducer(state, action)).toEqual(expected)
+  });
+
 });
