@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe ('SignUp', () => {
+describe('SignUp', () => {
   it('should match the snapshot', () => {
     const renderedSignUp = shallow(<SignUp />);
 
@@ -13,7 +13,9 @@ describe ('SignUp', () => {
   });
 
   it('should call handleSignUp when the button is clicked', () => {
-    const mockFunc = jest.fn()
+    const event = {preventDefault: jest.fn()};
+    const mockFunc = jest.fn();
+    
     
     const renderedSignUp = shallow(<SignUp handleSignUp = {mockFunc}/>);
 
@@ -21,7 +23,7 @@ describe ('SignUp', () => {
 
     expect(mockFunc.mock.calls.length).toEqual(0);
 
-    button.simulate('click');
+    button.simulate('click', event);
 
     expect(mockFunc.mock.calls.length).toEqual(1);
   });

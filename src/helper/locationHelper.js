@@ -9,6 +9,7 @@ export const geolocationFetch = async () => {
   });
   const fetchResponse = await fetchLocation.json();
 
+
   const locationObj = await fetchCityName(fetchResponse.location.lat, fetchResponse.location.lng);
 
   return await locationObj;

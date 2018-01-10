@@ -49,6 +49,7 @@ export class SignUp extends Component {
           value={this.state.password}/>
         <button
           onClick={(event)=>{
+            event.preventDefault();
             this.props.handleSignUp(this.state.email,
               this.state.username,
               this.state.password);
