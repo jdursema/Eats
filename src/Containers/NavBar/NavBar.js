@@ -56,8 +56,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleLocation: () =>
-    dispatch(initialLocationFetch()),
+  handleLocation: () => dispatch(initialLocationFetch()),
   handleLogOut: () => dispatch(logOut())
 });
 
